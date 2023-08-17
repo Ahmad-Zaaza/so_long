@@ -4,7 +4,7 @@ CC = cc
 # CFLAGS = -Wall -Wextra -Werror
 CFLAGS = -Wall
 
-OBJ = main.o
+OBJ = main.o put_image_pixel.o
 # INCLUDES = -I/opt/X11/include -Imlx
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 all: $(NAME)
