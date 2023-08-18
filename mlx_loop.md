@@ -53,17 +53,19 @@ called when no event occurs.
 When it catches an event, the MiniLibX calls the corresponding function
 with fixed parameters:
 
-  expose_hook(void *param);
+  ```expose_hook(void *param);```
+
   ```key_hook(int keycode, void *param);```
+  
   ```mouse_hook(int button, int x, int y, void *param);```
+  
   ```loop_hook(void *param);```
 
 These function names are arbitrary. They are used to distinguish
 parameters according to the event. These functions are NOT part of the
 MiniLibX.
 
-param is the address specified in the mlx_*_hook calls. This address is never
-used nor modified by the MiniLibX. On key and mouse events, additional
+param is the address specified in the mlx_*_hook calls. This address is never used nor modified by the MiniLibX. On key and mouse events, additional
 information is passed:
 keycode tells you which key is pressed (look for the X11 include file "keysymdef.h"),
 (x, y) are the coordinates of the mouse click in the window, and
