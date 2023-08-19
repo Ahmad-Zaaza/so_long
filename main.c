@@ -6,13 +6,11 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/19 03:07:54 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/20 01:21:21 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx/mlx.h"
 #include "so_long.h"
-#include <stdio.h>
 
 // key codes:
 // 53: esc

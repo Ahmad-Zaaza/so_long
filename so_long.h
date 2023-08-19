@@ -6,14 +6,16 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/19 03:07:54 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/20 01:35:01 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
-#include "mlx/mlx.h"
+#include "./libft/libft.h"
+#include "./ft_printf/include/ft_printf.h"
+#include "./mlx/mlx.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -49,9 +51,5 @@ int get_t(int trgb);
 int get_r(int trgb);
 int get_g(int trgb);
 int get_b(int trgb);
-
-// utils
-
-int ft_strcmp(char *s1, char *s2);
 
 #endif

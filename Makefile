@@ -4,19 +4,22 @@ CC = cc
 # CFLAGS = -Wall -Wextra -Werror
 CFLAGS = -Wall
 
-SRCS = main.c put_image_pixel.c draw_square.c color_utils.c \
- get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+SRCS = main.c put_image_pixel.c draw_square.c color_utils.c validations.c \
+ ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
 
-OBJ = $(SRCS:.c:.o)
+OBJ = $(SRCS:.c=.o)
 MLX_FLAGS = -Lmlx -lmlx -framework OpenGL -framework AppKit
 LIBS_FLAGS = -Lft_printf -lftprintf -Llibft -lft
+
+
 all: $(NAME)
 
 
 $(NAME): $(OBJ)
 	@make -C ft_printf
 	@make -C libft
-	$(CC) $(CFLAGS) -o $@ $^ $(MLX_FLAGS) $(LIBS_FLAGS)
+	@make -C mlx
+	$(CC) $(CFLAGS) $^ $(LIBS_FLAGS) $(MLX_FLAGS) -o $@
 
 clean:
 	@make clean -C ft_printf
