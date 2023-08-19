@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   queue.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 01:14:41 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/07/18 11:36:38 by azaaza           ###   ########.fr       */
+/*   Created: 2023/08/20 02:24:36 by azaaza            #+#    #+#             */
+/*   Updated: 2023/08/20 02:42:19 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-t_list	*ft_lstnew(void *content)
-{
-	t_list	*lst;
-
-	lst = (t_list *)malloc(sizeof(t_list));
-	if (!lst)
-		return (NULL);
-	lst->content = content;
-	lst->next = NULL;
-	return (lst);
+void init_map_queue(t_map_queue *queue) {
+  queue->first = NULL;
+  queue->last = NULL;
 }

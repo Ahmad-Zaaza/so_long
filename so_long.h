@@ -6,17 +6,18 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/20 01:35:01 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/20 02:42:36 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
-#include "./libft/libft.h"
 #include "./ft_printf/include/ft_printf.h"
+#include "./get_next_line/get_next_line.h"
+#include "./libft/libft.h"
 #include "./mlx/mlx.h"
-#include <stdio.h>
+#include <fcntl.h>
 #include <stdlib.h>
 
 typedef struct s_image_data {
@@ -34,9 +35,20 @@ typedef struct s_map {
   int columns;
 } t_map;
 
+typedef struct s_map_node {
+  char *line;
+  struct s_map_node *next;
+} t_map_node;
+
+typedef struct s_map_queue {
+  t_map_node *first;
+  t_map_node *last;
+} t_map_queue;
+
 typedef struct s_game {
   void *mlx;
   void *win;
+  t_map_queue queue;
   t_map map;
 } t_game;
 
@@ -52,4 +64,10 @@ int get_r(int trgb);
 int get_g(int trgb);
 int get_b(int trgb);
 
+// queue
+
+void init_map_queue(t_map_queue *queue);
+void enqueue(t_map_queue *queue, char *line);
+char *dequeue(t_map_queue *queue);
+int is_empty(t_map_queue *queue);
 #endif

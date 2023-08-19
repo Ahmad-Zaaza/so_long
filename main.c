@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/20 01:21:21 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/20 01:58:18 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 
 */
 int key_hook(int key_code, t_game *game) {
-  printf("key: %d\n", key_code);
+  ft_printf("key: %d\n", key_code);
   if (key_code == 53)
     exit(0);
   return (0);
@@ -46,7 +46,7 @@ void setup_key_listeners(t_game *game) {
   mlx_key_hook(game->win, key_hook, game);
 }
 
-int render_next_frame(void *params) { printf("rendering next frame\n"); }
+int render_next_frame(void *params) { ft_printf("rendering next frame\n"); }
 
 int main(int argc, char **argv) {
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 21:08:43 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/07/20 11:20:27 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/20 02:31:45 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ size_t				ft_strlcat(char *dest, char *src, size_t dest_size);
 char				*ft_strnstr(const char *haystack, const char *needle,
 						size_t len);
 
+int					ft_strcmp(const char *s1, const char *s2);
+
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -91,8 +93,6 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 
 void				ft_putnbr_fd(int n, int fd);
-
-t_list				*ft_lstnew(void *content);
 
 void				ft_lstadd_front(t_list **lst, t_list *node);
 

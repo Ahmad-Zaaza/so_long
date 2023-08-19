@@ -6,13 +6,13 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 01:29:16 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/20 01:29:32 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/20 01:54:52 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strcmp(char *s1, char *s2) {
+int ft_strcmp(const char *s1, const char *s2) {
   int i;
 
   i = 0;
