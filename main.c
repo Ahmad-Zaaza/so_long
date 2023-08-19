@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/19 01:47:59 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/19 03:07:54 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,22 @@ void setup_key_listeners(t_game *game) {
   mlx_key_hook(game->win, key_hook, game);
 }
 
-int main() {
+int render_next_frame(void *params) { printf("rendering next frame\n"); }
 
-  int color;
+int main(int argc, char **argv) {
+
   t_game game;
-  t_image_data img;
 
-  game.mlx = mlx_init();
-  game.win = mlx_new_window(game.mlx, 1920, 1080, "Hello world");
-  img.img = mlx_new_image(game.mlx, 1920, 1080);
+  // args and map validation
+  if (validate_args(argc, argv, &game)) {
 
-  img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.size_line,
-                               &img.endian);
-  color = create_trgb(1, 255, 255, 255);
-  printf("%d\n", get_b(color));
-  draw_square(&img, 250, color);
-  setup_key_listeners(&game);
-  mlx_put_image_to_window(game.mlx, game.win, img.img, 200, 200);
-  mlx_loop(game.mlx);
+    game.mlx = mlx_init();
+    game.win = mlx_new_window(game.mlx, 200, 200, "Hello world");
+
+    setup_key_listeners(&game);
+
+    mlx_loop_hook(game.mlx, render_next_frame, NULL);
+    mlx_loop(game.mlx);
+  }
   return (0);
 }
