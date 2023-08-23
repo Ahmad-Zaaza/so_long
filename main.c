@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/20 01:58:18 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/23 20:23:33 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int main(int argc, char **argv) {
   t_game game;
 
   // args and map validation
+
   if (validate_args(argc, argv, &game)) {
 
     game.mlx = mlx_init();
@@ -60,7 +61,7 @@ int main(int argc, char **argv) {
 
     setup_key_listeners(&game);
 
-    mlx_loop_hook(game.mlx, render_next_frame, NULL);
+    // mlx_loop_hook(game.mlx, render_next_frame, NULL);
     mlx_loop(game.mlx);
   }
   return (0);

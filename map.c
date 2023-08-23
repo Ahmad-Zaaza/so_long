@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:55:30 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/20 21:33:10 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/23 21:35:46 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void parse_map_from_queue(t_game *game) {
 
   i = 0;
   len = queue_size(&game->queue);
-  map_data = (char **)malloc(len * sizeof(char *) + 1);
+  ft_printf("row count: %d\n", len);
+  map_data = (char **)malloc((len + 1) * sizeof(char *));
   if (!map_data) {
     ft_printf("Error:\n Cannot allocate memory for map\n");
     exit(1);
