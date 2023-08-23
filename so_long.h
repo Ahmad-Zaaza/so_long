@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/20 02:42:36 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/20 21:32:26 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_image_data {
 
 typedef struct s_map {
   char *map_path;
+  char **map;
   int rows;
   int columns;
 } t_map;
@@ -70,4 +71,9 @@ void init_map_queue(t_map_queue *queue);
 void enqueue(t_map_queue *queue, char *line);
 char *dequeue(t_map_queue *queue);
 int is_empty(t_map_queue *queue);
+int queue_size(t_map_queue *queue);
+
+// map
+void init_map(t_map *map);
+void parse_map_from_queue(t_game *game);
 #endif
