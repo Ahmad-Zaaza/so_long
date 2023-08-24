@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/23 20:23:33 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/24 18:42:16 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,33 +36,35 @@
  2: d;
 
 */
-int key_hook(int key_code, t_game *game) {
-  ft_printf("key: %d\n", key_code);
-  if (key_code == 53)
-    exit(0);
-  return (0);
+int	key_hook(int key_code, t_game *game)
+{
+	ft_printf("key: %d\n", key_code);
+	if (key_code == 53)
+		exit(0);
+	return (0);
 }
-void setup_key_listeners(t_game *game) {
-  mlx_key_hook(game->win, key_hook, game);
+void	setup_key_listeners(t_game *game)
+{
+	mlx_key_hook(game->win, key_hook, game);
 }
 
-int render_next_frame(void *params) { ft_printf("rendering next frame\n"); }
+int	render_next_frame(void *params)
+{
+	ft_printf("rendering next frame\n");
+}
 
-int main(int argc, char **argv) {
+int	main(int argc, char **argv)
+{
+	t_game	game;
 
-  t_game game;
-
-  // args and map validation
-
-  if (validate_args(argc, argv, &game)) {
-
-    game.mlx = mlx_init();
-    game.win = mlx_new_window(game.mlx, 200, 200, "Hello world");
-
-    setup_key_listeners(&game);
-
-    // mlx_loop_hook(game.mlx, render_next_frame, NULL);
-    mlx_loop(game.mlx);
-  }
-  return (0);
+	// args and map validation
+	if (validate_args(argc, argv, &game))
+	{
+		game.mlx = mlx_init();
+		game.win = mlx_new_window(game.mlx, 200, 200, "Hello world");
+		setup_key_listeners(&game);
+		// mlx_loop_hook(game.mlx, render_next_frame, NULL);
+		mlx_loop(game.mlx);
+	}
+	return (0);
 }

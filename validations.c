@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 03:00:03 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/23 21:39:26 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/24 20:00:18 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ int	parse_map(char *name, t_game *game)
 		free(line);
 		line = get_next_line(fd);
 	}
-	parse_map_from_queue(game);
 	if (close(fd) < 0)
 	{
 		ft_printf("Error\n Cannot close map\n");
 		return (0);
 	}
+	parse_map_from_queue(game);
+	extract_exit_from_map(game);
 	return (1);
 }
 
