@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/24 20:01:10 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/24 20:18:52 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_map
 	int					rows;
 	int					columns;
 	t_map_exit			map_exit;
+	int					collectibles;
 }						t_map;
 
 typedef struct s_map_node
@@ -96,5 +97,7 @@ int						queue_size(t_map_queue *queue);
 // map
 void					init_map(t_map *map);
 void					parse_map_from_queue(t_game *game);
-void					extract_exit_from_map(t_game *game);
+void					extract_exit_and_player_from_map(t_game *game);
+void					count_collectibles(t_game *game);
+
 #endif

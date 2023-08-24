@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:55:30 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/24 20:00:04 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/24 20:18:17 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	init_map(t_map *map)
 	map->rows = 0;
 	map->map = NULL;
 	map->map_path = NULL;
+}
+void	init_player(t_player *player)
+{
+	player->col = 0;
+	player->row = 0;
 }
 
 void	parse_map_from_queue(t_game *game)
@@ -50,36 +55,52 @@ void	parse_map_from_queue(t_game *game)
 	i = 0;
 }
 
-void	extract_exit_from_map(t_game *game)
+// TODO: check if exit and player are in map
+void	extract_exit_and_player_from_map(t_game *game)
 {
-	int row;
-	int column;
-	char **map;
-	int found;
+	int		row;
+	int		column;
+	char	**map;
 
 	row = 0;
-	column = 0;
-	found = 0;
-	map = game->map.map;
-
-	while (map[column])
+	while (game->map.map[row])
 	{
-		while (map[column][row])
+		column = 0;
+		while (map[row][column])
 		{
-			if (map[column][row] == 'E')
+			if (map[row][column] == 'E')
 			{
 				game->map.map_exit.row = row;
-				game->map.map_exit.row = column;
-				found = 1;
-				break ;
+				game->map.map_exit.col = column;
 			}
-			row++;
+			else if (map[row][column] == 'P')
+			{
+				game->player.row = row;
+				game->player.col = column;
+			}
+			column++;
 		}
-		column++;
+		row++;
 	}
-	if (found != 1)
+}
+
+
+void count_collectibles(t_game *game)
+{
+	int		row;
+	int		column;
+	char	**map;
+
+	row = 0;
+	while (game->map.map[row])
 	{
-		ft_printf("Error\nNo exit found\n");
-		exit(1);
+		column = 0;
+		while (map[row][column])
+		{
+			if (map[row][column] == 'C')
+				game->map.collectibles++;
+			column++;
+		}
+		row++;
 	}
 }
