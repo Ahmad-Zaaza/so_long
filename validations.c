@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 03:00:03 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/26 20:35:48 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/26 21:46:18 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,8 @@ static int	validate_line(char *line)
 
 	i = 0;
 	len = ft_strlen(line);
-	while (i < (len))
+	while (i < len)
 	{
-		printf("line[%d]: %c\n", i, line[i]);
 		if (line[i] != '1' && line[i] != '0' && line[i] != 'C' && line[i] != 'E'
 			&& line[i] != 'P')
 		{
@@ -63,11 +62,11 @@ int	parse_map(char *name, t_game *game)
 		return (0);
 	}
 	line = get_next_line(fd);
-	while ((line = ft_strtrim(line, "\n")))
+	while (line)
 	{
-		if (!validate_line(line))
+		if (!validate_line(ft_strtrim(line, "\n")))
 			return (0);
-		enqueue(&game->queue, line);
+		enqueue(&game->queue, ft_strtrim(line, "\n"));
 		free(line);
 		line = get_next_line(fd);
 	}

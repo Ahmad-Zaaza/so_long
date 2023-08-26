@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:55:30 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/26 17:50:49 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/26 21:44:10 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft/libft.h"
 #include "so_long.h"
 
-static int	count_characters(char **str, char c)
+static int	count_characters(t_map *map, char c)
 {
 	int	count;
 	int	i;
@@ -22,12 +22,12 @@ static int	count_characters(char **str, char c)
 
 	i = 0;
 	count = 0;
-	while (str[i])
+	while (i < map->rows)
 	{
 		j = 0;
-		while (str[i][j])
+		while (map->map[i][j])
 		{
-			if (str[i][j] == c)
+			if (map->map[i][j] == c)
 				count++;
 			j++;
 		}
@@ -61,7 +61,7 @@ void	parse_map_from_queue(t_game *game)
 	while (i < len)
 	{
 		map_data[i] = dequeue(&game->queue);
-		game->map.columns += ft_strlen(map_data[i]);
+		game->map.columns = ft_strlen(map_data[i]);
 		i++;
 	}
 	map_data[i] = "\0";
@@ -69,7 +69,6 @@ void	parse_map_from_queue(t_game *game)
 	ft_printf("Rows: %d\n", game->map.rows);
 	ft_printf("Columns %d\n", game->map.columns);
 	game->map.map = map_data;
-	i = 0;
 }
 
 void	extract_exit_and_player_from_map(t_game *game)
@@ -78,7 +77,7 @@ void	extract_exit_and_player_from_map(t_game *game)
 	int	column;
 
 	row = 0;
-	while (game->map.map[row])
+	while (row < game->map.rows)
 	{
 		column = 0;
 		while (game->map.map[row][column])
@@ -105,9 +104,9 @@ int	check_exist_and_duplicates(t_game *game)
 	int	player_count;
 	int	collectible_count;
 
-	exit_count = count_characters(game->map.map, 'E');
-	player_count = count_characters(game->map.map, 'P');
-	collectible_count = count_characters(game->map.map, 'C');
+	exit_count = count_characters(&game->map, 'E');
+	player_count = count_characters(&game->map, 'P');
+	collectible_count = count_characters(&game->map, 'C');
 	if (exit_count == 0 || player_count == 0)
 	{
 		ft_printf("Error\nNo exit or player found\n");
