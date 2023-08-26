@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/24 20:18:52 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/26 16:05:14 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,10 @@ int						queue_size(t_map_queue *queue);
 void					init_map(t_map *map);
 void					parse_map_from_queue(t_game *game);
 void					extract_exit_and_player_from_map(t_game *game);
-void					count_collectibles(t_game *game);
+// void					count_collectibles(t_game *game);
+
+// map validation
+
+int						check_exist_and_duplicates(t_game *game);
 
 #endif

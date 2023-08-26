@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 03:00:03 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/24 20:18:47 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/26 16:03:44 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	parse_map(char *name, t_game *game)
 	}
 	parse_map_from_queue(game);
 	extract_exit_and_player_from_map(game);
-	count_collectibles(game);
+	check_exist_and_duplicates(game);
 	return (1);
 }
 

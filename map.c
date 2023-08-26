@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:55:30 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/24 20:18:17 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/26 16:05:10 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	parse_map_from_queue(t_game *game)
 	i = 0;
 }
 
-// TODO: check if exit and player are in map
 void	extract_exit_and_player_from_map(t_game *game)
 {
 	int		row;
@@ -85,22 +84,22 @@ void	extract_exit_and_player_from_map(t_game *game)
 }
 
 
-void count_collectibles(t_game *game)
-{
-	int		row;
-	int		column;
-	char	**map;
+// void count_collectibles(t_game *game)
+// {
+// 	int		row;
+// 	int		column;
+// 	char	**map;
 
-	row = 0;
-	while (game->map.map[row])
-	{
-		column = 0;
-		while (map[row][column])
-		{
-			if (map[row][column] == 'C')
-				game->map.collectibles++;
-			column++;
-		}
-		row++;
-	}
-}
+// 	row = 0;
+// 	while (game->map.map[row])
+// 	{
+// 		column = 0;
+// 		while (map[row][column])
+// 		{
+// 			if (map[row][column] == 'C')
+// 				game->map.collectibles++;
+// 			column++;
+// 		}
+// 		row++;
+// 	}
+// }
