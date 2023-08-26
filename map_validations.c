@@ -6,58 +6,81 @@
 /*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:20:45 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/26 15:54:19 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/26 17:46:22 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/libft.h"
 #include "so_long.h"
 
-static int	count_characters(char **str, char c)
+static int	is_wall(char c)
 {
-	int	count;
-	int	i;
-	int	j;
-
-	i = 0;
-	count = 0;
-	while (str[i])
-	{
-		j = 0;
-		while (str[i][j])
-		{
-			if (str[i][j] == c)
-				count++;
-			j++;
-		}
-		i++;
-	}
-	return (count);
+	if (c == '1')
+		return (1);
+	return (0);
 }
 
-int	check_exist_and_duplicates(t_game *game)
+static int	is_walls(char *str)
 {
-	int	exit_count;
-	int	player_count;
-	int	collectible_count;
+	int	i;
 
-	exit_count = count_characters(game->map.map, 'E');
-	player_count = count_characters(game->map.map, 'P');
-	collectible_count = count_characters(game->map.map, 'C');
-	if (exit_count == 0 || player_count == 0)
+	i = 0;
+	while (str[i])
 	{
-		ft_printf("Error\nNo exit or player found\n");
+		if (!is_wall(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	check_if_rectangular(t_map map)
+{
+	int	first_row_len;
+	int	row;
+
+	first_row_len = ft_strlen(map.map[0]);
+	row = 1;
+	while (row < map.rows)
+	{
+		if (ft_strlen(map.map[row]) != first_row_len)
+		{
+			ft_printf("Error\nMap is not rectangular\n");
+			return (0);
+		}
+		row++;
+	}
+	return (1);
+}
+
+int	check_enclosed_by_walls(t_map map)
+{
+	int	row;
+
+	row = 0;
+	if (!is_walls(map.map[0]) || !is_walls(map.map[map.rows - 1]))
+	{
+		ft_printf("Error\nMap is not enclosed by walls\n");
 		return (0);
 	}
-	if (exit_count > 1 || player_count > 1)
+	while (row < map.rows)
 	{
-		ft_printf("Error\nDuplicate exit or player found\n");
+		if (!is_wall(map.map[row][0]) || !is_wall(map.map[row][map.columns
+				- 1]))
+		{
+			ft_printf("Error\nMap is not enclosed by walls\n");
+			return (0);
+		}
+		row++;
+	}
+	return (1);
+}
+
+int	validate_map(t_game *game)
+{
+	if (!check_if_rectangular(game->map) || !check_enclosed_by_walls(game->map))
+	{
 		return (0);
 	}
-	if (!(collectible_count > 0))
-	{
-		ft_printf("Error\nCollectibles not found \n");
-		return (0);
-	}
-	game->map.collectibles = collectible_count;
 	return (1);
 }

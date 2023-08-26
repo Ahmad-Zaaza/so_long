@@ -4,7 +4,7 @@ CC = cc
 # CFLAGS = -Wall -Wextra -Werror
 CFLAGS = -Wall -fsanitize=address -g3
 
-SRCS = main.c put_image_pixel.c draw_square.c color_utils.c validations.c queue.c map.c \
+SRCS = main.c put_image_pixel.c draw_square.c color_utils.c validations.c queue.c map.c map_validations.c \
  ./get_next_line/get_next_line.c ./get_next_line/get_next_line_utils.c
 
 OBJ = $(SRCS:.c=.o)

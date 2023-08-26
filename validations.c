@@ -6,13 +6,14 @@
 /*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 03:00:03 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/26 16:03:44 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/26 20:19:22 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf/include/ft_printf.h"
 #include "get_next_line/get_next_line.h"
 #include "so_long.h"
+#include <stdio.h>
 
 static int	validate_map_name(char *name)
 {
@@ -27,6 +28,27 @@ static int	validate_map_name(char *name)
 	return (1);
 }
 
+static int	validate_line(char *line)
+{
+	int	i;
+	int	len;
+
+	i = 0;
+	len = ft_strlen(line);
+	while (i < len - 1)
+	{
+		if (line[i] != '1' && line[i] != '0' && line[i] != 'C' && line[i] != 'E'
+			&& line[i] != 'P')
+		{
+			ft_printf("Error\nInvalid character in map\n");
+			return (0);
+		}
+		i++;
+	}
+	free(line);
+	return (1);
+}
+
 int	parse_map(char *name, t_game *game)
 {
 	int		fd;
@@ -34,8 +56,7 @@ int	parse_map(char *name, t_game *game)
 
 	init_map(&game->map);
 	init_map_queue(&game->queue);
-	fd = open(name, O_RDONLY);
-	if (fd < 0)
+	if ((fd = open(name, O_RDONLY)) < 0)
 	{
 		ft_printf("Error\n Cannot open map or invalid map name\n");
 		return (0);
@@ -43,6 +64,8 @@ int	parse_map(char *name, t_game *game)
 	line = get_next_line(fd);
 	while (line)
 	{
+		if (!validate_line(line))
+			return (0);
 		enqueue(&game->queue, line);
 		free(line);
 		line = get_next_line(fd);
@@ -66,7 +89,8 @@ int	validate_args(int argc, char **argv, t_game *game)
 		return (0);
 	}
 	// validate map name
-	if (!validate_map_name(argv[1]) || !parse_map(argv[1], game))
+	if (!validate_map_name(argv[1]) || !parse_map(argv[1], game)
+		|| !validate_map(game))
 	{
 		return (0);
 	}
