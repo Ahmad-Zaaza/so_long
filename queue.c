@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 02:24:36 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/23 21:41:27 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/26 20:34:28 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	enqueue(t_map_queue *queue, char *line)
 	t_map_node	*node;
 
 	node = (t_map_node *)malloc(sizeof(t_map_node));
-	node->line = ft_strtrim(line, "\n");
+	node->line = line;
 	node->next = NULL;
 	if (!queue->first)
 	{

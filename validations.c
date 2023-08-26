@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 03:00:03 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/26 20:19:22 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/26 20:35:48 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,18 @@ static int	validate_line(char *line)
 
 	i = 0;
 	len = ft_strlen(line);
-	while (i < len - 1)
+	while (i < (len))
 	{
+		printf("line[%d]: %c\n", i, line[i]);
 		if (line[i] != '1' && line[i] != '0' && line[i] != 'C' && line[i] != 'E'
 			&& line[i] != 'P')
 		{
 			ft_printf("Error\nInvalid character in map\n");
+			free(line);
 			return (0);
 		}
 		i++;
 	}
-	free(line);
 	return (1);
 }
 
@@ -62,7 +63,7 @@ int	parse_map(char *name, t_game *game)
 		return (0);
 	}
 	line = get_next_line(fd);
-	while (line)
+	while ((line = ft_strtrim(line, "\n")))
 	{
 		if (!validate_line(line))
 			return (0);
