@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 01:14:07 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/27 01:57:15 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/27 12:51:06 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,18 @@
 static void draw_tile(t_game *game, int row, int col) {
 
   if (game->map.map[row][col] == '1') {
-    mlx_put_image_to_window(game->mlx, game->win, game->tiles.wall, col * 32,
-                            row * 32);
+    mlx_put_image_to_window(game->mlx, game->win, game->tiles.wall,
+                            col * TILE_SIZE, row * TILE_SIZE);
   } else if (game->map.map[row][col] == '0') {
-    mlx_put_image_to_window(game->mlx, game->win, game->tiles.floor, col * 32,
-                            row * 32);
+    mlx_put_image_to_window(game->mlx, game->win, game->tiles.floor,
+                            col * TILE_SIZE, row * TILE_SIZE);
+
+  } else if (game->map.map[row][col] == 'P') {
+    mlx_put_image_to_window(game->mlx, game->win, game->tiles.floor,
+                            col * TILE_SIZE, row * TILE_SIZE);
+    mlx_put_image_to_window(
+        game->mlx, game->win, game->player.images[game->player.direction],
+        game->player.col * TILE_SIZE, game->player.row * TILE_SIZE);
   }
 }
 

@@ -10,11 +10,11 @@ void init_player(t_game *game) {
   game->player.direction = 3;
 
   game->player.images[0] = mlx_xpm_file_to_image(
-      game->mlx, "./assets/player/bottom.xpm", &width, &height);
+      game->mlx, "./assets/player/left.xpm", &width, &height);
   game->player.images[1] = mlx_xpm_file_to_image(
-      game->mlx, "./textures/player/top.xpm", &width, &height);
+      game->mlx, "./assets/player/top.xpm", &width, &height);
   game->player.images[2] = mlx_xpm_file_to_image(
-      game->mlx, "./textures/player/right.xpm", &width, &height);
+      game->mlx, "./assets/player/right.xpm", &width, &height);
   game->player.images[3] = mlx_xpm_file_to_image(
-      game->mlx, "./textures/player/left.xpm", &width, &height);
+      game->mlx, "./assets/player/bottom.xpm", &width, &height);
 }

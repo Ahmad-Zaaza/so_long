@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/27 01:20:53 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/27 12:47:32 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 #include "./mlx/mlx.h"
 #include <fcntl.h>
 #include <stdlib.h>
+
+#ifndef TILE_SIZE
+#define TILE_SIZE 32
+#endif
 
 typedef struct s_image_data {
   void *img;

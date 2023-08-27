@@ -6,10 +6,11 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/27 01:45:38 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/27 13:23:03 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "mlx/mlx.h"
 #include "so_long.h"
 
 // key codes:
@@ -36,14 +37,25 @@
  2: d;
 
 */
-int key_hook(int key_code, t_game *game) {
-  ft_printf("key: %d\n", key_code);
-  if (key_code == 53)
-    exit(0);
+
+// static void destroy_game(t_game *game) {
+//   mlx_destroy_window(game->mlx, game->win);
+//   exit(0);
+// }
+
+int handle_destroy(t_game *game) {
+  //   destroy_game(game);
+  mlx_destroy_window(game->mlx, game->win);
+
+  exit(0);
   return (0);
 }
-void setup_key_listeners(t_game *game) {
-  mlx_key_hook(game->win, key_hook, game);
+
+int handle_keydown(int key_code, t_game *game) {
+  ft_printf("key: %d\n", key_code);
+  if (key_code == 53)
+    handle_destroy(game);
+  return (0);
 }
 
 int render_next_frame(void *params) { ft_printf("rendering next frame\n"); }
@@ -54,11 +66,14 @@ int main(int argc, char **argv) {
   // args and map validation
   if (validate_args(argc, argv, &game)) {
     game.mlx = mlx_init();
-    game.win = mlx_new_window(game.mlx, game.map.columns * 32,
-                              game.map.rows * 32, "Baby");
+    game.win = mlx_new_window(game.mlx, game.map.columns * TILE_SIZE,
+                              game.map.rows * TILE_SIZE, "Baby");
     init_player(&game);
     load_and_draw_tiles(&game);
-    setup_key_listeners(&game);
+
+    mlx_hook(game.win, 2, 0, &handle_keydown, &game);
+    mlx_hook(game.win, 17, 0, &handle_destroy, &game);
+
     // mlx_loop_hook(game.mlx, render_next_frame, NULL);
     mlx_loop(game.mlx);
   }
