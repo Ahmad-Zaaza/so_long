@@ -6,23 +6,11 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/27 13:23:03 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/27 14:02:45 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx/mlx.h"
 #include "so_long.h"
-
-// key codes:
-// 53: esc
-// 123: left arrow
-// 124: right arrow
-// 125: down arrow
-// 126: up arrow
-// 13: w
-// 0: a
-// 1: s
-// 2: d
 
 /**
  key codes:
@@ -38,13 +26,7 @@
 
 */
 
-// static void destroy_game(t_game *game) {
-//   mlx_destroy_window(game->mlx, game->win);
-//   exit(0);
-// }
-
 int handle_destroy(t_game *game) {
-  //   destroy_game(game);
   mlx_destroy_window(game->mlx, game->win);
 
   exit(0);
@@ -52,13 +34,21 @@ int handle_destroy(t_game *game) {
 }
 
 int handle_keydown(int key_code, t_game *game) {
-  ft_printf("key: %d\n", key_code);
   if (key_code == 53)
     handle_destroy(game);
+  else if (key_code == 13 || key_code == 0 || key_code == 1 || key_code == 2) {
+    handle_move_player(key_code, game);
+  }
   return (0);
 }
 
-int render_next_frame(void *params) { ft_printf("rendering next frame\n"); }
+int render_next_frame(t_game *game) {
+  mlx_clear_window(game->mlx, game->win);
+  draw_tiles(game);
+  draw_player(game);
+
+  return 1;
+}
 
 int main(int argc, char **argv) {
   t_game game;
@@ -69,12 +59,12 @@ int main(int argc, char **argv) {
     game.win = mlx_new_window(game.mlx, game.map.columns * TILE_SIZE,
                               game.map.rows * TILE_SIZE, "Baby");
     init_player(&game);
-    load_and_draw_tiles(&game);
+    load_tiles(&game);
 
     mlx_hook(game.win, 2, 0, &handle_keydown, &game);
     mlx_hook(game.win, 17, 0, &handle_destroy, &game);
 
-    // mlx_loop_hook(game.mlx, render_next_frame, NULL);
+    mlx_loop_hook(game.mlx, render_next_frame, &game);
     mlx_loop(game.mlx);
   }
   return (0);

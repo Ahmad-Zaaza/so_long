@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/27 12:47:32 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/27 16:05:21 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "./ft_printf/include/ft_printf.h"
 #include "./get_next_line/get_next_line.h"
 #include "./libft/libft.h"
-#include "./mlx/mlx.h"
+#include "mlx/mlx.h"
 #include <fcntl.h>
 #include <stdlib.h>
 
@@ -39,7 +39,6 @@ typedef struct s_map_exit {
 } t_map_exit;
 
 typedef struct s_map {
-  char *map_path;
   char **map;
   int rows;
   int columns;
@@ -119,9 +118,12 @@ int check_enclosed_by_walls(t_map map);
 // player
 
 void init_player(t_game *game);
+void handle_move_player(int key, t_game *game);
+void draw_player(t_game *game);
 
 // tiles
 
-void load_and_draw_tiles(t_game *game);
+void load_tiles(t_game *game);
+void draw_tiles(t_game *game);
 
 #endif

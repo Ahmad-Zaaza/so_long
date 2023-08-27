@@ -18,3 +18,10 @@ void init_player(t_game *game) {
   game->player.images[3] = mlx_xpm_file_to_image(
       game->mlx, "./assets/player/bottom.xpm", &width, &height);
 }
+
+void draw_player(t_game *game) {
+
+  mlx_put_image_to_window(
+      game->mlx, game->win, game->player.images[game->player.direction],
+      game->player.col * TILE_SIZE, game->player.row * TILE_SIZE);
+}
