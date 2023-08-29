@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 18:58:50 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/27 20:28:14 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/29 21:20:10 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,4 @@ int	count_characters(t_map *map, char c)
 		i++;
 	}
 	return (count);
-}
-
-void	handle_collactable(t_game *game, int row, int col)
-{
-	game->map.map[row][col] = '0';
-	game->player.collectables_gathered++;
 }
