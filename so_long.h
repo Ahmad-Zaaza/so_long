@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/29 23:53:14 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/30 00:30:21 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,19 @@ typedef struct s_tiles {
   void *exit;
 } t_tiles;
 
+typedef struct s_font {
+  void *zero;
+  void *one;
+  void *two;
+  void *three;
+  void *four;
+  void *five;
+  void *six;
+  void *seven;
+  void *eight;
+  void *nine;
+} t_font;
+
 typedef struct s_game {
   void *mlx;
   void *win;
@@ -75,6 +88,7 @@ typedef struct s_game {
   t_map map;
   t_player player;
   t_tiles tiles;
+  t_font font;
 } t_game;
 
 int validate_args(int argc, char **argv, t_game *game);
@@ -118,10 +132,17 @@ void move_player(t_game *game, int row, int col, int new_direction);
 
 void load_tiles(t_game *game);
 void draw_tiles(t_game *game);
+void draw_movements(t_game *game);
 void destroy_tiles(t_game *game);
 
 // utils
 
 int count_characters(t_map *map, char c);
+
+// font
+
+void destroy_fonts(t_game *game);
+void ft_put_font(t_game *game, int digit, int i);
+void load_fonts(t_game *game);
 
 #endif
