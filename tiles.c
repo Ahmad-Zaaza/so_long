@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 01:14:07 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/29 21:18:46 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/29 21:52:06 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void draw_tiles(t_game *game) {
       if (game->map.map[row][col] == '1') {
         mlx_put_image_to_window(game->mlx, game->win, game->tiles.wall,
                                 col * TILE_SIZE, row * TILE_SIZE);
-      } else if (game->map.map[row][col] == '0') {
+      } else if (game->map.map[row][col] == '0' ||
+                 game->map.map[row][col] == 'P') {
         mlx_put_image_to_window(game->mlx, game->win, game->tiles.floor,
                                 col * TILE_SIZE, row * TILE_SIZE);
       }
