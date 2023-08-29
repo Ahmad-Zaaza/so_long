@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_validations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:20:45 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/26 21:44:31 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/29 23:09:23 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	check_enclosed_by_walls(t_map map)
 {
 	int	row;
 
-	row = 0;
 	row = 0;
 	if (!is_walls(map.map[0]) || !is_walls(map.map[map.rows - 1]))
 	{

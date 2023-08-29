@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/29 21:28:28 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/08/29 23:53:14 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,11 @@ typedef struct s_player {
 
 typedef struct s_tiles {
   void *collectible;
-  void *floor;
-  void *wall;
+  void *bush;
+  void *grass;
+  void *dirt;
+  void *horizontal_fence;
+  void *vertical_fence;
   void *exit;
 } t_tiles;
 
