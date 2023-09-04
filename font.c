@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 00:18:24 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/30 00:51:55 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/09/05 01:13:47 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,14 @@ void ft_put_font(t_game *game, int digit, int i) {
 }
 
 void destroy_fonts(t_game *game) {
-  mlx_destroy_image(game->mlx, game->tiles.grass);
-  mlx_destroy_image(game->mlx, game->tiles.bush);
-  mlx_destroy_image(game->mlx, game->tiles.dirt);
-  mlx_destroy_image(game->mlx, game->tiles.vertical_fence);
-  mlx_destroy_image(game->mlx, game->tiles.horizontal_fence);
-  mlx_destroy_image(game->mlx, game->player.images[0]);
-  mlx_destroy_image(game->mlx, game->player.images[1]);
-  mlx_destroy_image(game->mlx, game->player.images[2]);
-  mlx_destroy_image(game->mlx, game->player.images[3]);
+  mlx_destroy_image(game->mlx, game->font.zero);
+  mlx_destroy_image(game->mlx, game->font.one);
+  mlx_destroy_image(game->mlx, game->font.two);
+  mlx_destroy_image(game->mlx, game->font.three);
+  mlx_destroy_image(game->mlx, game->font.four);
+  mlx_destroy_image(game->mlx, game->font.five);
+  mlx_destroy_image(game->mlx, game->font.six);
+  mlx_destroy_image(game->mlx, game->font.seven);
+  mlx_destroy_image(game->mlx, game->font.eight);
+  mlx_destroy_image(game->mlx, game->font.nine);
 }
