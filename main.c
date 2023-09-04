@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/30 00:40:11 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/09/05 01:08:54 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int handle_keydown(int key_code, t_game *game) {
   }
   return (0);
 }
-
 int render_next_frame(t_game *game) {
   mlx_clear_window(game->mlx, game->win);
   draw_tiles(game);

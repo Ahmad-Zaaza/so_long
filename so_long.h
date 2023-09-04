@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/30 00:30:21 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/09/04 23:10:03 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,8 +128,9 @@ void draw_player(t_game *game);
 void handle_collactable(t_game *game, int row, int col);
 void handle_exit(t_game *game, int row, int col);
 void move_player(t_game *game, int row, int col, int new_direction);
-// tiles
+int dfs(t_game *game, int *collected, int **visited, int row, int col);
 
+// tiles
 void load_tiles(t_game *game);
 void draw_tiles(t_game *game);
 void draw_movements(t_game *game);
@@ -138,6 +139,8 @@ void destroy_tiles(t_game *game);
 // utils
 
 int count_characters(t_map *map, char c);
+int **create_visited_arr(t_game *game);
+void free_visited(int **visited, int size);
 
 // font
 
