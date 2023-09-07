@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tiles.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 01:14:07 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/30 00:23:33 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/09/07 23:16:00 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,12 @@ void load_tiles(t_game *game) {
   int height;
 
   game->tiles.vertical_fence = mlx_xpm_file_to_image(
-      game->mlx, "./assets/world/fence/left_right.xpm", &width, &height);
+      game->mlx, "./assets/world/rock.xpm", &width, &height);
+  // game->tiles.vertical_fence = mlx_xpm_file_to_image(
+  //     game->mlx, "./assets/world/fence/left_right.xpm", &width, &height);
   game->tiles.horizontal_fence = mlx_xpm_file_to_image(
-      game->mlx, "./assets/world/fence/top_bottom.xpm", &width, &height);
-  game->tiles.bush = mlx_xpm_file_to_image(game->mlx, "./assets/world/bush.xpm",
+      game->mlx, "./assets/world/rock.xpm", &width, &height);
+  game->tiles.bush = mlx_xpm_file_to_image(game->mlx, "./assets/world/rock.xpm",
                                            &width, &height);
   game->tiles.grass = mlx_xpm_file_to_image(
       game->mlx, "./assets/world/grass.xpm", &width, &height);
