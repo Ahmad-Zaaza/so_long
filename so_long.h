@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/09/04 23:10:03 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/09/09 20:58:19 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ int dfs(t_game *game, int *collected, int **visited, int row, int col);
 // tiles
 void load_tiles(t_game *game);
 void draw_tiles(t_game *game);
+void draw_collectibles(t_game *game);
 void draw_movements(t_game *game);
 void destroy_tiles(t_game *game);
 
