@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/09/09 20:58:19 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/09/10 02:52:51 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,8 @@ typedef struct s_player {
 
 typedef struct s_tiles {
   void *collectible;
-  void *bush;
-  void *grass;
-  void *dirt;
-  void *horizontal_fence;
-  void *vertical_fence;
+  void *floor;
+  void *wall;
   void *exit;
 } t_tiles;
 
@@ -125,15 +122,12 @@ int check_enclosed_by_walls(t_map map);
 void init_player(t_game *game);
 void handle_move_player(int key, t_game *game);
 void draw_player(t_game *game);
-void handle_collactable(t_game *game, int row, int col);
-void handle_exit(t_game *game, int row, int col);
 void move_player(t_game *game, int row, int col, int new_direction);
 int dfs(t_game *game, int *collected, int **visited, int row, int col);
 
 // tiles
 void load_tiles(t_game *game);
 void draw_tiles(t_game *game);
-void draw_collectibles(t_game *game);
 void draw_movements(t_game *game);
 void destroy_tiles(t_game *game);
 
@@ -142,6 +136,7 @@ void destroy_tiles(t_game *game);
 int count_characters(t_map *map, char c);
 int **create_visited_arr(t_game *game);
 void free_visited(int **visited, int size);
+int handle_destroy(t_game *game);
 
 // font
 

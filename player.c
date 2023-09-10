@@ -25,11 +25,6 @@ void draw_player(t_game *game) {
       game->player.col * TILE_SIZE, game->player.row * TILE_SIZE);
 }
 
-void handle_collactable(t_game *game, int row, int col) {
-  game->map.map[row][col] = '0';
-  game->player.collectables_gathered++;
-}
-
 void handle_move_player(int key, t_game *game) {
   int p_col;
   int new_row;
@@ -44,5 +39,3 @@ void handle_move_player(int key, t_game *game) {
   else if (key == 2)
     move_player(game, game->player.row, game->player.col + 1, 2);
 }
-
-void handle_exit(t_game *game, int row, int col) {}
