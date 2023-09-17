@@ -6,7 +6,7 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 01:14:07 by azaaza            #+#    #+#             */
-/*   Updated: 2023/09/10 01:39:18 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/09/16 13:04:40 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,6 @@
 void draw_wall(t_game *game, int row, int col) {
   mlx_put_image_to_window(game->mlx, game->win, game->tiles.wall,
                           col * TILE_SIZE, row * TILE_SIZE);
-  //   if (row == 0 || row == game->map.rows - 1) {
-  //     mlx_put_image_to_window(game->mlx, game->win,
-  //     game->tiles.vertical_fence,
-  //                             col * TILE_SIZE, row * TILE_SIZE);
-  //   } else if (col == 0 || col == game->map.columns - 1) {
-  //     mlx_put_image_to_window(game->mlx, game->win,
-  //     game->tiles.horizontal_fence,
-  //                             col * TILE_SIZE, row * TILE_SIZE);
-  //   } else {
-  //     mlx_put_image_to_window(game->mlx, game->win, game->tiles.bush,
-  //                             col * TILE_SIZE, row * TILE_SIZE);
-  //   }
 }
 
 void draw_tiles(t_game *game) {
@@ -60,12 +48,12 @@ void load_tiles(t_game *game) {
   int width;
   int height;
 
-  game->tiles.wall = mlx_xpm_file_to_image(game->mlx, "./assets/world/rock.xpm",
+  game->tiles.wall = mlx_xpm_file_to_image(game->mlx, "../assets/world/rock.xpm",
                                            &width, &height);
   game->tiles.collectible = mlx_xpm_file_to_image(
-      game->mlx, "./assets/world/coin/coin.xpm", &width, &height);
+      game->mlx, "../assets/world/coin/coin.xpm", &width, &height);
   game->tiles.floor = mlx_xpm_file_to_image(
-      game->mlx, "./assets/world/floor.xpm", &width, &height);
+      game->mlx, "../assets/world/floor.xpm", &width, &height);
 }
 
 void destroy_tiles(t_game *game) {

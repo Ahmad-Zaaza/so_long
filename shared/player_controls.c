@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   controls.c                                         :+:      :+:    :+:   */
+/*   player_controls.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 02:17:56 by azaaza            #+#    #+#             */
-/*   Updated: 2023/09/10 02:52:56 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/09/16 13:37:53 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/include/ft_printf.h"
-#include "so_long.h"
+#include "../ft_printf/include/ft_printf.h"
+#include "../so_long.h"
 #include <stdio.h>
 
 static void handle_collactable(t_game *game, int row, int col) {
   game->map.map[row][col] = '0';
   game->player.collectables_gathered++;
 }
+
 static void handle_exit(t_game *game, int row, int col) {
   if (game->player.collectables_gathered == game->map.collectibles) {
     ft_printf("You win!\n");

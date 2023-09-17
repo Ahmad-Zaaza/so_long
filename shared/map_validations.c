@@ -6,12 +6,12 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:20:45 by azaaza            #+#    #+#             */
-/*   Updated: 2023/09/04 23:14:34 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/09/16 13:40:01 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-#include "so_long.h"
+#include "../libft/libft.h"
+#include "../so_long.h"
 
 static int is_walls(char *str) {
   int i;

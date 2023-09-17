@@ -6,11 +6,11 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 22:16:53 by azaaza            #+#    #+#             */
-/*   Updated: 2023/09/05 01:00:23 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/09/16 13:35:12 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 static int is_valid_path(t_map *map, int **visited, int row, int col) {
   if (map->map[row][col] == '1' || visited[row][col] == 1) {
@@ -43,4 +43,32 @@ int dfs(t_game *game, int *collected, int **visited, int row, int col) {
     i++;
   }
   return (0);
+}
+int **create_visited_arr(t_game *game) {
+  int **visited;
+  visited = (int **)malloc(sizeof(int *) * game->map.rows);
+  if (!visited)
+    return (NULL);
+  int i;
+  i = 0;
+
+  while (i < game->map.rows) {
+    visited[i] = (int *)malloc(game->map.columns * sizeof(int));
+    if (!visited[i]) {
+      free(visited);
+      return (NULL);
+    }
+    i++;
+  }
+  return (visited);
+}
+
+void free_visited(int **visited, int size) {
+  int i;
+  i = 0;
+  while (i < size) {
+    free(visited[i]);
+    i++;
+  };
+  free(visited);
 }

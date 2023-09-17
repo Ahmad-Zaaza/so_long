@@ -6,11 +6,11 @@
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 00:18:24 by azaaza            #+#    #+#             */
-/*   Updated: 2023/09/05 01:13:47 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/09/16 13:35:12 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 void draw_movements(t_game *game) {
   int i;
@@ -30,25 +30,25 @@ void draw_movements(t_game *game) {
 void load_fonts(t_game *game) {
   int size;
   game->font.zero =
-      mlx_xpm_file_to_image(game->mlx, "assets/fonts/0.xpm", &size, &size);
+      mlx_xpm_file_to_image(game->mlx, "../assets/fonts/0.xpm", &size, &size);
   game->font.one =
-      mlx_xpm_file_to_image(game->mlx, "assets/fonts/1.xpm", &size, &size);
+      mlx_xpm_file_to_image(game->mlx, "../assets/fonts/1.xpm", &size, &size);
   game->font.two =
-      mlx_xpm_file_to_image(game->mlx, "assets/fonts/2.xpm", &size, &size);
+      mlx_xpm_file_to_image(game->mlx, "../assets/fonts/2.xpm", &size, &size);
   game->font.three =
-      mlx_xpm_file_to_image(game->mlx, "assets/fonts/3.xpm", &size, &size);
+      mlx_xpm_file_to_image(game->mlx, "../assets/fonts/3.xpm", &size, &size);
   game->font.four =
-      mlx_xpm_file_to_image(game->mlx, "assets/fonts/4.xpm", &size, &size);
+      mlx_xpm_file_to_image(game->mlx, "../assets/fonts/4.xpm", &size, &size);
   game->font.five =
-      mlx_xpm_file_to_image(game->mlx, "assets/fonts/5.xpm", &size, &size);
+      mlx_xpm_file_to_image(game->mlx, "../assets/fonts/5.xpm", &size, &size);
   game->font.six =
-      mlx_xpm_file_to_image(game->mlx, "assets/fonts/6.xpm", &size, &size);
+      mlx_xpm_file_to_image(game->mlx, "../assets/fonts/6.xpm", &size, &size);
   game->font.seven =
-      mlx_xpm_file_to_image(game->mlx, "assets/fonts/7.xpm", &size, &size);
+      mlx_xpm_file_to_image(game->mlx, "../assets/fonts/7.xpm", &size, &size);
   game->font.eight =
-      mlx_xpm_file_to_image(game->mlx, "assets/fonts/8.xpm", &size, &size);
+      mlx_xpm_file_to_image(game->mlx, "../assets/fonts/8.xpm", &size, &size);
   game->font.nine =
-      mlx_xpm_file_to_image(game->mlx, "assets/fonts/9.xpm", &size, &size);
+      mlx_xpm_file_to_image(game->mlx, "../assets/fonts/9.xpm", &size, &size);
 }
 
 void ft_put_font(t_game *game, int digit, int i) {
