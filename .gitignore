@@ -1,6 +1,5 @@
 a.out
 *.o
-so_long
 **/*.o
 *.a
 **/*.a
