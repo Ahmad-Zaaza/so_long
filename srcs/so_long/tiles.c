@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tiles.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
+/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 01:14:07 by azaaza            #+#    #+#             */
-/*   Updated: 2023/09/16 13:04:40 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/10/21 01:58:38 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ void load_tiles(t_game *game) {
   int width;
   int height;
 
-  game->tiles.wall = mlx_xpm_file_to_image(game->mlx, "../assets/world/rock.xpm",
+  game->tiles.wall = mlx_xpm_file_to_image(game->mlx, "textures/world/rock.xpm",
                                            &width, &height);
   game->tiles.collectible = mlx_xpm_file_to_image(
-      game->mlx, "../assets/world/coin/coin.xpm", &width, &height);
+      game->mlx, "textures/world/coin/coin.xpm", &width, &height);
   game->tiles.floor = mlx_xpm_file_to_image(
-      game->mlx, "../assets/world/floor.xpm", &width, &height);
+      game->mlx, "textures/world/floor.xpm", &width, &height);
 }
 
 void destroy_tiles(t_game *game) {

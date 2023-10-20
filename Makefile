@@ -1,7 +1,8 @@
 
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+#CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -fsanitize=address -g3
 
 MLX_FLAGS = -L mlx -lmlx -framework OpenGL -framework AppKit
 LIBS_FLAGS = -L ft_printf -lftprintf -L libft -lft
@@ -29,7 +30,7 @@ SO_LONG_OBJS_PATH = $(addprefix $(OBJS_DIR), $(SO_LONG_OBJS))
 # BONUS_OBJS_PATH = $(addprefix $(OBJS_DIR), $(BONUS_OBJS))
 SHARED_OBJS_PATH = $(addprefix $(OBJS_DIR), $(SHARED_OBJS))
 
-SO_LONG_OBJ = $(SO_LONG_OBJS_PATH) $(BONUS_OBJS_PATH)
+SO_LONG_OBJ = $(SO_LONG_OBJS_PATH) $(SHARED_OBJS_PATH)
 # BONUS_OBJ = $(BONUS_OBJS_PATH) $(BONUS_OBJS_PATH)
 
 
