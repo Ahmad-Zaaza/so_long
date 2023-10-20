@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx/mlx.h"
-#include "so_long.h"
+#include "../../includes/so_long.h"
 
 void draw_wall(t_game *game, int row, int col) {
   mlx_put_image_to_window(game->mlx, game->win, game->tiles.wall,

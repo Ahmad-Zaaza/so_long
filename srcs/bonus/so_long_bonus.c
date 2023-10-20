@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_mandatory.h"
+#include "../../includes/so_long.h"
 
 /**
  key codes:

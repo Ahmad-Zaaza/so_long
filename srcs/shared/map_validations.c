@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "../so_long.h"
+
+#include "../../includes/so_long.h"
+
 
 static int is_walls(char *str) {
   int i;

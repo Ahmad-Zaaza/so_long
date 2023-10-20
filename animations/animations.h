@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 
-#include "../so_long.h"
+#include "../includes/so_long.h"
 
 #ifndef ANIMATIONS_H
 #define ANIMATIONS_H

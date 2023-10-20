@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../includes/so_long.h"
 
 void draw_movements(t_game *game) {
   int i;

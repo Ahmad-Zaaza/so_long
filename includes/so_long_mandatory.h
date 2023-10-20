@@ -13,16 +13,6 @@
 #ifndef SO_LONG_MANDATORY_H
 #define SO_LONG_MANDATORY_H
 
-#include "../ft_printf/include/ft_printf.h"
-#include "../get_next_line/get_next_line.h"
-#include "../libft/libft.h"
-#include "../mlx/mlx.h"
-#include <fcntl.h>
-#include <stdlib.h>
-
-#ifndef TILE_SIZE
-#define TILE_SIZE 32
-#endif
 
 typedef struct s_map_exit {
   int col;

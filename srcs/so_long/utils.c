@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 12:10:49 by azaaza            #+#    #+#             */
-/*   Updated: 2023/09/17 11:40:00 by azaaza           ###   ########.fr       */
+/*   Created: 2023/08/27 18:58:50 by azaaza            #+#    #+#             */
+/*   Updated: 2023/09/16 13:27:18 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
+#include "../../includes/so_long.h"
 
-#define SO_LONG_H
+int count_characters(t_map *map, char c) {
+  int count;
+  int i;
+  int j;
 
-#include "./mandatory/so_long_mandatory.h"
-#include "./bonus/so_long_bonus.h"
-
-#endif
+  i = 0;
+  count = 0;
+  while (i < map->rows) {
+    j = 0;
+    while (map->map[i][j]) {
+      if (map->map[i][j] == c)
+        count++;
+      j++;
+    }
+    i++;
+  }
+  return (count);
+}

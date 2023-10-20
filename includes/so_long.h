@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/27 18:58:50 by azaaza            #+#    #+#             */
-/*   Updated: 2023/09/16 13:27:18 by azaaza           ###   ########.fr       */
+/*   Created: 2023/09/10 12:10:49 by azaaza            #+#    #+#             */
+/*   Updated: 2023/09/17 11:40:00 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_mandatory.h"
+#ifndef SO_LONG_H
 
-int count_characters(t_map *map, char c) {
-  int count;
-  int i;
-  int j;
+#define SO_LONG_H
 
-  i = 0;
-  count = 0;
-  while (i < map->rows) {
-    j = 0;
-    while (map->map[i][j]) {
-      if (map->map[i][j] == c)
-        count++;
-      j++;
-    }
-    i++;
-  }
-  return (count);
-}
+#ifndef TILE_SIZE
+#define TILE_SIZE 32
+#endif
+
+#include "../ft_printf/include/ft_printf.h"
+#include "../libft/libft.h"
+
+#include "../mlx/mlx.h"
+#include <fcntl.h>
+#include <stdlib.h>
+
+
+
+
+
+// #include "./so_long_bonus.h"
+#include "./so_long_mandatory.h"
+
+#endif

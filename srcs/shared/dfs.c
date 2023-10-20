@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../so_long.h"
+#include "../../includes/so_long.h"
 
 static int is_valid_path(t_map *map, int **visited, int row, int col) {
   if (map->map[row][col] == '1' || visited[row][col] == 1) {

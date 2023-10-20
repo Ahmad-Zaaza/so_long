@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
+/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 23:46:35 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/08/20 02:28:29 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/10/17 02:11:59 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,13 @@ void	init_queue(t_queue *queue)
 
 int	has_newline(t_queue *queue)
 {
-	t_node	*tmp;
-	int		i;
+	t_list	*tmp;
 
 	tmp = queue->first;
 	while (tmp)
 	{
-		i = 0;
 		if (tmp->content == '\n')
 			return (1);
-		i++;
 		tmp = tmp->next;
 	}
 	return (0);
@@ -37,35 +34,33 @@ int	has_newline(t_queue *queue)
 
 char	*get_next_line(int fd)
 {
-	static t_queue	queue;
-	static int		is_init;
-	char			*buffer;
-	int				readed;
+	static t_table_item	table[MAX_FD] = {0};
+	char				*buffer;
+	int					readed;
+	t_table_item		*item;
 
-	buffer = NULL;
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, buffer, 0) < 0)
-	{
-		free(buffer);
+	buffer = 0;
+	if (fd < 0 || fd > MAX_FD || BUFFER_SIZE <= 0 || read(fd, buffer, 0) < 0)
 		return (NULL);
-	}
-	if (!is_init)
+	item = &table[fd];
+	if (item->init == 0)
 	{
-		init_queue(&queue);
-		is_init = 1;
+		init_queue(&item->queue);
+		item->init = 1;
 	}
-	if (has_newline(&queue))
-		return (get_line(&queue));
+	if (has_newline(&item->queue))
+		return (get_line(&item->queue));
 	buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
 	readed = read(fd, buffer, BUFFER_SIZE);
 	buffer[readed] = '\0';
-	return (handle_read(fd, readed, buffer, &queue));
+	return (handle_read(fd, readed, buffer, &item->queue));
 }
 
 char	*handle_read(int fd, int readed, char *buffer, t_queue *queue)
 {
-	int	i;
+	int i;
 
 	if (readed > 0)
 	{

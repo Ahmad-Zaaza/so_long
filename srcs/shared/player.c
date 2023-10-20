@@ -1,5 +1,5 @@
 
-#include "../so_long.h"
+#include "../../includes/so_long.h"
 
 void init_player(t_game *game) {
   int height;

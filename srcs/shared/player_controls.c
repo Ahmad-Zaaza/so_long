@@ -10,9 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf/include/ft_printf.h"
-#include "../so_long.h"
-#include <stdio.h>
+#include "../../includes/so_long.h"
+
 
 static void handle_collactable(t_game *game, int row, int col) {
   game->map.map[row][col] = '0';

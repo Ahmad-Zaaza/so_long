@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/include/ft_printf.h"
-#include "get_next_line/get_next_line.h"
-#include "so_long.h"
-#include <stdio.h>
+#include "../../includes/so_long.h"
 
 static int	validate_map_name(char *name)
 {

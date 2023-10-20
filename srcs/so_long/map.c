@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/include/ft_printf.h"
-#include "libft/libft.h"
-#include "so_long.h"
+#include "../../includes/so_long.h"
 
 
 void	init_map(t_map *map)
