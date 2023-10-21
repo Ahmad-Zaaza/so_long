@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   validations.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 03:00:03 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/26 21:46:18 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/10/21 16:09:02 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
+
+/**
+Map name validation:
+
+Validate that the map ends with `.ber` extension.
+
+We basically compare the last 4 characters of the given name to `.ber`. It should match.
+*/
 
 static int	validate_map_name(char *name)
 {
@@ -24,6 +32,19 @@ static int	validate_map_name(char *name)
 	}
 	return (1);
 }
+
+/**
+Map line validation:
+
+Makes sure that the given line has only the supported characters.
+
+'1' for a wall.
+'0' for a path.
+'P' for a player.
+'C' for a collectable.
+'E' for an exit.
+
+*/
 
 static int	validate_line(char *line)
 {
@@ -45,6 +66,18 @@ static int	validate_line(char *line)
 	}
 	return (1);
 }
+
+/**
+Map parsing:
+
+After making sure that the given map name is valid, we attempt to read the file line by line.
+We make sure that the line is valid. then enqueue it to the queue object. which we then dump into
+a 2d string array which represents the rows and cols in the game.
+
+We also keep track of the rows and cols count in the game object.
+
+Then, we extract the player and exit coordinates from the array and store it in the game object.
+*/
 
 int	parse_map(char *name, t_game *game)
 {
@@ -74,10 +107,27 @@ int	parse_map(char *name, t_game *game)
 	}
 	parse_map_from_queue(game);
 	extract_exit_and_player_from_map(game);
-	check_exist_and_duplicates(game);
 	return (1);
 }
 
+/**
+Arguments validation:
+
+- We only accept one argument which is the path to the desired map.
+
+First,  we validate the map name,
+	and make sure that it ends with a `.ber` extension.
+
+Secondly, we read the file defined in the path,
+	then extract each line which represents a row in the game map.
+we make sure that the line only contains supported characters. then add it to the queue object which we parse
+to construct our game information (map, player).
+
+Lastly, we make sure that the map is enclosed by walls, has a rectangular shape,
+	and has valid paths
+towards the loot and exit.
+
+*/
 int	validate_args(int argc, char **argv, t_game *game)
 {
 	if (argc != 2)
@@ -85,11 +135,8 @@ int	validate_args(int argc, char **argv, t_game *game)
 		ft_printf("Error\nInvalid number of arguments\n");
 		return (0);
 	}
-	// validate map name
 	if (!validate_map_name(argv[1]) || !parse_map(argv[1], game)
 		|| !validate_map(game))
-	{
 		return (0);
-	}
 	return (1);
 }
