@@ -3,16 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
+/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 12:10:49 by azaaza            #+#    #+#             */
-/*   Updated: 2023/09/17 11:40:00 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/10/22 19:45:59 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 
 #define SO_LONG_H
+
+
+#define KEY_PRESS 2
+#define DESTROY_NOTIFY 17
 
 #ifndef TILE_SIZE
 #define TILE_SIZE 32

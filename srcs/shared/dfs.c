@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 22:16:53 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/21 16:33:34 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/21 22:49:45 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /**
   This is to check if we can go further.
-  we go further only if the cell isn't a wall or we previously visited it before
+  we go further only if the cell isn't a wall or we previously visited it before.
 */
 static int	is_valid_path(t_map *map, int **visited, int row, int col)
 {

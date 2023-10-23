@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 01:14:07 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/21 16:31:25 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/24 00:02:57 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 void	draw_wall(t_game *game, int row, int col)
 {
 	mlx_put_image_to_window(game->mlx, game->win, game->tiles.wall, col
-		* TILE_SIZE, row * TILE_SIZE);
+		* TILE_SIZE, (row + 1) * TILE_SIZE);
 }
 
+/**
+Row starting from 1 because we need to render the fonts on a black bg
+*/
 void	draw_tiles(t_game *game)
 {
 	int	col;
@@ -34,15 +37,16 @@ void	draw_tiles(t_game *game)
 			else if (game->map.map[row][col] == 'C')
 			{
 				mlx_put_image_to_window(game->mlx, game->win, game->tiles.floor,
-					col * TILE_SIZE, row * TILE_SIZE);
+					col * TILE_SIZE, (row + 1) * TILE_SIZE);
 				mlx_put_image_to_window(game->mlx, game->win,
-					game->tiles.collectible, col * TILE_SIZE, row * TILE_SIZE);
+					game->tiles.collectible, col * TILE_SIZE, (row + 1)
+					* TILE_SIZE);
 			}
 			else if (game->map.map[row][col] == '0'
 				|| game->map.map[row][col] == 'P')
 			{
 				mlx_put_image_to_window(game->mlx, game->win, game->tiles.floor,
-					col * TILE_SIZE, row * TILE_SIZE);
+					col * TILE_SIZE, (row + 1) * TILE_SIZE);
 			}
 			col++;
 		}
