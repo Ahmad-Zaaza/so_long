@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   draw_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 12:10:49 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/24 01:39:54 by ahmadzaaza       ###   ########.fr       */
+/*   Created: 2023/10/24 00:39:55 by ahmadzaaza        #+#    #+#             */
+/*   Updated: 2023/10/24 01:12:55 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
+#include "../../includes/so_long.h"
 
-#define SO_LONG_H
+void	*xpm_to_image(t_game **game, char *file)
+{
+	int height;
+	int width;
+	void *ptr;
 
-
-#define KEY_PRESS 2
-#define DESTROY_NOTIFY 17
-
-#ifndef TILE_SIZE
-#define TILE_SIZE 32
-#endif
-
-#include "../ft_printf/include/ft_printf.h"
-#include "../libft/libft.h"
-
-#include "../mlx/mlx.h"
-#include <fcntl.h>
-#include <stdlib.h>
-
-
-
-
-
-#include "./so_long_bonus.h"
-#include "./so_long_mandatory.h"
-
-#endif
+	ptr = (mlx_xpm_file_to_image((*game)->mlx, file, &width, &height));
+	return (ptr);
+}
