@@ -18,7 +18,7 @@ SHARED_SRCS_DIR = $(SRCS_DIR)/shared/
 SO_LONG_SRCS = so_long.c 
 BONUS_SRCS = so_long_bonus.c
 SHARED_SRCS = queue.c player_controls.c player.c dfs.c font.c map_validations.c validations.c  tiles.c  map.c  utils.c \
-				draw_utils.c
+				draw_utils.c error.c
 
 SO_LONG_SRCS_PATH = $(SO_LONG_SRCS:%=$(SO_LONG_SRCS_DIR)%)
 BONUS_SRCS_PATH = $(BONUS_SRCS:%=$(BONUS_SRCS_DIR)%)
@@ -80,6 +80,9 @@ clean:
 	rm -f $(SO_LONG_OBJ) 
 
 fclean:clean
+	@make fclean -C ft_printf
+	@make fclean -C libft
+	@make clean -C mlx
 	rm -f $(NAME) $(BONUS)
 
 re: fclean all

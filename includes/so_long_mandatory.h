@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/24 01:38:23 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/26 01:03:08 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ typedef struct s_game
 	t_font				font;
 }						t_game;
 
-int						validate_args(int argc, char **argv, t_game *game);
+void					validate_args(int argc, char **argv, t_game *game);
 
 // Color utils
 int						create_trgb(int t, int r, int g, int b);
@@ -102,6 +102,7 @@ void					enqueue(t_map_queue *queue, char *line);
 char					*dequeue(t_map_queue *queue);
 int						is_empty(t_map_queue *queue);
 int						queue_size(t_map_queue *queue);
+void					cleanup_queue(t_map_queue *queue);
 
 // map
 void					init_map(t_map *map);
@@ -111,7 +112,7 @@ int						check_exist_and_duplicates(t_game *game);
 void					cleanup_map(t_game *game);
 
 // map validation
-int						validate_map(t_game *game);
+void					validate_map(t_game *game);
 int						check_if_rectangular(t_map map);
 int						check_enclosed_by_walls(t_map map);
 
@@ -149,4 +150,8 @@ DRAW UTILS
 */
 
 void					*xpm_to_image(t_game **game, char *file);
+
+/* ERROR*/
+
+void					print_error(char *message);
 #endif

@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 03:00:03 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/21 16:09:02 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/26 01:06:09 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,16 @@ Validate that the map ends with `.ber` extension.
 We basically compare the last 4 characters of the given name to `.ber`. It should match.
 */
 
-static int	validate_map_name(char *name)
+static void	validate_map_name(char *name)
 {
 	int	len;
 
 	len = ft_strlen(name);
 	if (ft_strcmp(name + len - 4, ".ber") != 0)
 	{
-		ft_printf("Error\nInvalid map name\n");
-		return (0);
+		print_error("Invalid map name");
+		exit(1);
 	}
-	return (1);
 }
 
 /**
@@ -46,7 +45,7 @@ Makes sure that the given line has only the supported characters.
 
 */
 
-static int	validate_line(char *line)
+static void	validate_line(char *line, t_map_queue *queue)
 {
 	int	i;
 	int	len;
@@ -58,56 +57,55 @@ static int	validate_line(char *line)
 		if (line[i] != '1' && line[i] != '0' && line[i] != 'C' && line[i] != 'E'
 			&& line[i] != 'P')
 		{
-			ft_printf("Error\nInvalid character in map\n");
+			print_error("Invalid character in map");
 			free(line);
-			return (0);
+			cleanup_queue(queue);
+			exit(1);
 		}
 		i++;
 	}
-	return (1);
 }
 
 /**
 Map parsing:
 
-After making sure that the given map name is valid, we attempt to read the file line by line.
+After making sure that the given map name is valid,
+	we attempt to read the file line by line.
 We make sure that the line is valid. then enqueue it to the queue object. which we then dump into
 a 2d string array which represents the rows and cols in the game.
 
 We also keep track of the rows and cols count in the game object.
 
-Then, we extract the player and exit coordinates from the array and store it in the game object.
+Then,
+	we extract the player and exit coordinates from the array and store it in the game object.
 */
 
-int	parse_map(char *name, t_game *game)
+static void	parse_map(char *name, t_game *game)
 {
 	int		fd;
 	char	*line;
 
-	init_map(&game->map);
-	init_map_queue(&game->queue);
 	if ((fd = open(name, O_RDONLY)) < 0)
 	{
-		ft_printf("Error\n Cannot open map or invalid map name\n");
-		return (0);
+		print_error(strerror(errno));
+		exit(1);
 	}
 	line = get_next_line(fd);
 	while (line)
 	{
-		if (!validate_line(ft_strtrim(line, "\n")))
-			return (0);
+		validate_line(ft_strtrim(line, "\n"), &game->queue);
 		enqueue(&game->queue, ft_strtrim(line, "\n"));
 		free(line);
 		line = get_next_line(fd);
 	}
 	if (close(fd) < 0)
 	{
-		ft_printf("Error\n Cannot close map\n");
-		return (0);
+		print_error(strerror(errno));
+		cleanup_queue(&game->queue);
+		exit(1);
 	}
 	parse_map_from_queue(game);
 	extract_exit_and_player_from_map(game);
-	return (1);
 }
 
 /**
@@ -128,15 +126,16 @@ Lastly, we make sure that the map is enclosed by walls, has a rectangular shape,
 towards the loot and exit.
 
 */
-int	validate_args(int argc, char **argv, t_game *game)
+void	validate_args(int argc, char **argv, t_game *game)
 {
 	if (argc != 2)
 	{
-		ft_printf("Error\nInvalid number of arguments\n");
-		return (0);
+		print_error("Invalid number of arguments. Usage: ./so_long <path_to_map>");
+		exit(1);
 	}
-	if (!validate_map_name(argv[1]) || !parse_map(argv[1], game)
-		|| !validate_map(game))
-		return (0);
-	return (1);
+	validate_map_name(argv[1]);
+	init_map(&game->map);
+	init_map_queue(&game->queue);
+	parse_map(argv[1], game);
+	validate_map(game);
 }

@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 12:10:49 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/25 21:36:45 by ahmadzaaza       ###   ########.fr       */
+/*   Created: 2023/10/25 21:39:50 by ahmadzaaza        #+#    #+#             */
+/*   Updated: 2023/10/25 22:20:22 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
+#include "../../includes/so_long.h"
 
-#define SO_LONG_H
+void	print_error(char *message)
+{
+	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd(message, 2);
+	ft_putstr_fd("\n", 2);
+}
 
+void	cleanup_queue(t_map_queue *queue)
+{
+	t_map_node *tmp;
 
-#define KEY_PRESS 2
-#define DESTROY_NOTIFY 17
-
-#ifndef TILE_SIZE
-#define TILE_SIZE 32
-#endif
-
-#include "../ft_printf/include/ft_printf.h"
-#include "../libft/libft.h"
-
-#include "../mlx/mlx.h"
-#include <fcntl.h>
-#include <stdlib.h>
-#include <errno.h>
-
-
-
-
-
-
-#include "./so_long_bonus.h"
-#include "./so_long_mandatory.h"
-
-#endif
+	while (queue->first)
+	{
+		tmp = queue->first;
+		queue->first = queue->first->next;
+		free(tmp);
+	}
+}

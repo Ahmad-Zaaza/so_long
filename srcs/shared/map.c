@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:55:30 by azaaza            #+#    #+#             */
-/*   Updated: 2023/08/27 18:59:06 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/10/26 01:07:01 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long.h"
-
 
 void	init_map(t_map *map)
 {
@@ -20,6 +19,11 @@ void	init_map(t_map *map)
 	map->map = NULL;
 }
 
+/**
+	Extracting the map from the queue.
+	Each node in the queue is a line in the map in a form of a string.
+	In the end we endup with a 2d array which we set to game->map.map
+*/
 void	parse_map_from_queue(t_game *game)
 {
 	char	**map_data;
@@ -32,6 +36,7 @@ void	parse_map_from_queue(t_game *game)
 	if (!map_data)
 	{
 		ft_printf("Error:\n Cannot allocate memory for map\n");
+		cleanup_queue(&game->queue);
 		exit(1);
 	}
 	while (i < len)
@@ -105,7 +110,7 @@ void	cleanup_map(t_game *game)
 	int i;
 
 	i = 0;
-	while (i < game->map.rows)
+	while (i < game->map.rows && game->map.map[i])
 	{
 		free(game->map.map[i]);
 		i++;

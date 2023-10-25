@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:20:45 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/21 16:31:25 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/26 01:08:49 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	check_if_rectangular(t_map map)
 	{
 		if (ft_strlen(map.map[row]) != first_row_len)
 		{
-			ft_printf("Error\nMap is not rectangular\n");
+			print_error("Map is not rectangular");
 			return (0);
 		}
 		row++;
@@ -69,14 +69,14 @@ int	check_enclosed_by_walls(t_map map)
 	row = 0;
 	if (!is_walls(map.map[0]) || !is_walls(map.map[map.rows - 1]))
 	{
-		ft_printf("Error\nMap is not enclosed by walls\n");
+		print_error("Map is not enclosed by walls");
 		return (0);
 	}
 	while (row < map.rows)
 	{
 		if (map.map[row][0] != '1' || map.map[row][map.columns - 1] != '1')
 		{
-			ft_printf("Error\nMap is not enclosed by walls\n");
+			print_error("Map is not enclosed by walls");
 			return (0);
 		}
 		row++;
@@ -135,7 +135,7 @@ static int	has_valid_paths(t_game *game)
 		return (1);
 	}
 	free_visited(visited, game->map.rows);
-	ft_printf("Error\nMap has no valid paths\n");
+	print_error("Map has no valid paths");
 	return (0);
 }
 
@@ -152,10 +152,12 @@ static int	has_valid_paths(t_game *game)
   Lastly,
 	the map should have valid paths to the collectibles and the exit (unless you wanna get stuck).
 */
-int	validate_map(t_game *game)
+void	validate_map(t_game *game)
 {
 	if (!check_exist_and_duplicates(game) || !check_if_rectangular(game->map)
 		|| !check_enclosed_by_walls(game->map) || !has_valid_paths(game))
-		return (0);
-	return (1);
+	{
+		cleanup_map(game);
+		exit(1);
+	}
 }

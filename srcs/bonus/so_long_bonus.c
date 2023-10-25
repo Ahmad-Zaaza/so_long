@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/24 01:42:30 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/26 01:05:14 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,16 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	// args and map validation
-	if (validate_args(argc, argv, &game))
-	{
-		game.mlx = mlx_init();
-		game.win = mlx_new_window(game.mlx, game.map.columns * TILE_SIZE,
-				(game.map.rows + 1) * TILE_SIZE, "Baby");
-		init_player(&game);
-		load_tiles(&game);
-		load_fonts(&game);
-		mlx_hook(game.win, 2, 0, &handle_keydown, &game);
-		mlx_hook(game.win, 17, 0, &handle_destroy, &game);
-		mlx_loop_hook(game.mlx, render_next_frame, &game);
-		mlx_loop(game.mlx);
-	}
+	validate_args(argc, argv, &game);
+	game.mlx = mlx_init();
+	game.win = mlx_new_window(game.mlx, game.map.columns * TILE_SIZE,
+			(game.map.rows + 1) * TILE_SIZE, "Baby");
+	init_player(&game);
+	load_tiles(&game);
+	load_fonts(&game);
+	mlx_hook(game.win, 2, 0, &handle_keydown, &game);
+	mlx_hook(game.win, 17, 0, &handle_destroy, &game);
+	mlx_loop_hook(game.mlx, render_next_frame, &game);
+	mlx_loop(game.mlx);
 	return (0);
 }
