@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/26 01:05:14 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/28 16:12:04 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	handle_destroy(t_game *game)
 	cleanup_map(game);
 	destroy_fonts(game);
 	mlx_destroy_window(game->mlx, game->win);
-	// free(game->mlx);
+	free(game->mlx);
 	exit(0);
 	return (0);
 }
