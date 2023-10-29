@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "name": "Debug",
+            "request": "launch",
+            "program": "${workspaceFolder}/so_long",
+            // "env": {
+            //     "LSAN_OPTIONS": "verbosity=1:log_threads=1"
+            // },
+            "args": [
+                "maps/level1.ber"
+            ],
+            "cwd": "${workspaceFolder}",
+        }
+    ]
+}

@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 10:51:17 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/17 02:11:00 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/30 02:36:28 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*get_line(t_queue *queue)
 		count++;
 		tmp = tmp->next;
 	}
-	str = (char *)malloc(sizeof(char) * count + 2);
+	str = (char *)malloc(sizeof(char) * (count + 2));
 	if (!str)
 		return (NULL);
 	count = 0;

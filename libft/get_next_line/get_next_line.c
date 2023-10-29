@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 23:46:35 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/10/17 02:11:59 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/30 02:30:47 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*get_next_line(int fd)
 	}
 	if (has_newline(&item->queue))
 		return (get_line(&item->queue));
-	buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
+	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
 	readed = read(fd, buffer, BUFFER_SIZE);
