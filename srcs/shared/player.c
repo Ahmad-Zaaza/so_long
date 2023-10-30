@@ -1,5 +1,5 @@
 
-#include "../../includes/so_long.h"
+#include "../../includes/so_long_mandatory.h"
 
 /**
   Populating the player object.
@@ -24,7 +24,6 @@ void	init_player(t_game *game)
 	int	height;
 	int	width;
 
-	game->player.alive = 1;
 	game->player.collectables_gathered = 0;
 	game->player.moves = 0;
 	game->player.direction = 3;

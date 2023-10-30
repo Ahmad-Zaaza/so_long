@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   queue.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
+/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 02:24:36 by azaaza            #+#    #+#             */
-/*   Updated: 2023/09/16 13:37:12 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/10/31 00:20:29 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../../includes/so_long_mandatory.h"
 
 
 void	init_map_queue(t_map_queue *queue)

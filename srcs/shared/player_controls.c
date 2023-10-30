@@ -6,11 +6,11 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 02:17:56 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/28 17:49:17 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 00:20:29 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../../includes/so_long_mandatory.h"
 
 /**
   Once the player steps on a collectable tile, convert the

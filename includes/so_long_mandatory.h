@@ -6,12 +6,26 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/30 23:57:15 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 00:27:13 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_MANDATORY_H
 # define SO_LONG_MANDATORY_H
+
+# define KEY_PRESS 2
+# define DESTROY_NOTIFY 17
+
+# ifndef TILE_SIZE
+#  define TILE_SIZE 32
+# endif
+
+# include "../ft_printf/include/ft_printf.h"
+# include "../libft/libft.h"
+# include "../mlx/mlx.h"
+# include <errno.h>
+# include <fcntl.h>
+# include <stdlib.h>
 
 typedef struct s_map_exit
 {
@@ -46,7 +60,6 @@ typedef struct s_player
 	int					row;
 	int					moves;
 	int					collectables_gathered;
-	int					alive;
 	int					direction;
 	void				*images[4];
 
@@ -54,16 +67,11 @@ typedef struct s_player
 
 typedef struct s_tiles
 {
-	void				*collectible[11];
+	void				*collectible;
 	void				*floor;
 	void				*wall;
 	void				*exit;
 }						t_tiles;
-
-// typedef struct s_font
-// {
-// 	void				*fonts[9];
-// }						t_font;
 
 typedef struct s_game
 {
@@ -73,7 +81,6 @@ typedef struct s_game
 	t_map				map;
 	t_player			player;
 	t_tiles				tiles;
-	void				*fonts[9];
 }						t_game;
 
 void					validate_args(int argc, char **argv, t_game *game);
@@ -112,7 +119,6 @@ int						dfs(t_game *game, int *collected, int **visited,
 // tiles
 void					load_tiles(t_game *game);
 void					draw_tiles(t_game *game);
-void					draw_movements(t_game *game);
 void					destroy_tiles(t_game *game);
 
 // utils
@@ -121,12 +127,6 @@ int						count_characters(t_map *map, char c);
 int						**create_visited_arr(t_game *game);
 void					free_visited(int **visited, int size);
 int						handle_destroy(t_game *game);
-
-// font
-
-void					destroy_fonts(t_game *game);
-void					ft_put_font(t_game *game, int digit, int i);
-void					load_fonts(t_game *game);
 
 /**
 DRAW UTILS

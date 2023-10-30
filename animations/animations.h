@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   animations.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42abudhabi.ae>      +#+  +:+       +#+        */
+/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 10:58:03 by azaaza            #+#    #+#             */
-/*   Updated: 2023/09/10 11:27:18 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/10/31 00:20:29 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_mandatory.h"
 
 #ifndef ANIMATIONS_H
 #define ANIMATIONS_H

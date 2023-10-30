@@ -6,11 +6,11 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 03:00:03 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/30 02:22:12 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 00:20:29 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../../includes/so_long_mandatory.h"
 
 /**
 Map name validation:

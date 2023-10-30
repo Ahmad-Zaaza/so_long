@@ -6,12 +6,11 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:42:03 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/10/30 18:42:54 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 00:29:02 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
-#include <time.h>
+#include "../../includes/so_long_mandatory.h"
 
 static void	draw_floor(t_game *game, int row, int col)
 {
@@ -22,17 +21,14 @@ static void	draw_floor(t_game *game, int row, int col)
 void	draw_wall(t_game *game, int row, int col)
 {
 	mlx_put_image_to_window(game->mlx, game->win, game->tiles.wall, col
-		* TILE_SIZE, (row + 1) * TILE_SIZE);
+		* TILE_SIZE, row * TILE_SIZE);
 }
 
 static void	draw_coin(t_game *game, int row, int col)
 {
-	clock_t	c;
-
-	c = clock();
-	draw_floor(game, row + 1, col);
-	mlx_put_image_to_window(game->mlx, game->win, game->tiles.collectible[(c
-			/ 100000) % 11], col * TILE_SIZE, (row + 1) * TILE_SIZE);
+	draw_floor(game, row, col);
+	mlx_put_image_to_window(game->mlx, game->win, game->tiles.collectible, col
+		* TILE_SIZE, row * TILE_SIZE);
 }
 
 /**
@@ -55,7 +51,7 @@ void	draw_tiles(t_game *game)
 				draw_coin(game, row, col);
 			else if (game->map.map[row][col] == '0'
 				|| game->map.map[row][col] == 'P')
-				draw_floor(game, row + 1, col);
+				draw_floor(game, row, col);
 			col++;
 		}
 		row++;
@@ -73,22 +69,5 @@ void	draw_player(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx, game->win,
 		game->player.images[game->player.direction], game->player.col
-		* TILE_SIZE, (game->player.row + 1) * TILE_SIZE);
-}
-
-void	draw_movements(t_game *game)
-{
-	int	i;
-	int	digit;
-	int	moves;
-
-	moves = game->player.moves;
-	i = 0;
-	while (i < 4)
-	{
-		digit = moves % 10;
-		moves /= 10;
-		ft_put_font(game, digit, i);
-		i++;
-	}
+		* TILE_SIZE, game->player.row * TILE_SIZE);
 }

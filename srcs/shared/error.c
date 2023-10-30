@@ -6,11 +6,11 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:39:50 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/10/25 22:20:22 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 00:20:29 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../../includes/so_long_mandatory.h"
 
 void	print_error(char *message)
 {

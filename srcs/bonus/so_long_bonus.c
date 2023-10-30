@@ -6,11 +6,11 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/30 18:43:46 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 00:24:18 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../../includes/so_long_bonus.h"
 #include <time.h>
 
 /**
@@ -42,9 +42,7 @@ int	handle_keydown(int key_code, t_game *game)
 	if (key_code == 53)
 		handle_destroy(game);
 	else if (key_code == 13 || key_code == 0 || key_code == 1 || key_code == 2)
-	{
 		handle_move_player(key_code, game);
-	}
 	return (0);
 }
 
