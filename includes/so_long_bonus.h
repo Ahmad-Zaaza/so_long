@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 11:39:05 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 00:22:35 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 01:42:30 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ typedef struct s_player
 	int					row;
 	int					moves;
 	int					collectables_gathered;
-	int					alive;
 	int					direction;
 	void				*images[4];
 
@@ -70,7 +69,7 @@ typedef struct s_player
 
 typedef struct s_tiles
 {
-	void				*collectible[11];
+	void				*collectible[14];
 	void				*floor;
 	void				*wall;
 	void				*exit;
@@ -114,7 +113,7 @@ int						check_enclosed_by_walls(t_map map);
 
 void					init_player(t_game *game);
 void					handle_move_player(int key, t_game *game);
-void					draw_player(t_game *game);
+void					draw_floor(t_game *game, int row, int col);
 void					move_player(t_game *game, int row, int col,
 							int new_direction);
 int						dfs(t_game *game, int *collected, int **visited,
@@ -122,8 +121,10 @@ int						dfs(t_game *game, int *collected, int **visited,
 
 // tiles
 void					load_tiles(t_game *game);
-void					draw_tiles(t_game *game);
+void					load_coin(t_game *game);
+void					draw(t_game *game);
 void					draw_movements(t_game *game);
+void					draw_coin(t_game *game, int row, int col);
 void					destroy_tiles(t_game *game);
 
 // utils
@@ -136,6 +137,7 @@ int						handle_destroy(t_game *game);
 // font
 
 void					destroy_fonts(t_game *game);
+void					destroy_coins(t_game *game);
 void					ft_put_font(t_game *game, int digit, int i);
 void					load_fonts(t_game *game);
 

@@ -5,7 +5,7 @@
             "type": "lldb",
             "name": "Debug",
             "request": "launch",
-            "program": "${workspaceFolder}/so_long",
+            "program": "${workspaceFolder}/bonus",
             // "env": {
             //     "LSAN_OPTIONS": "verbosity=1:log_threads=1"
             // },

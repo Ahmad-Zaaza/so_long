@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 02:17:56 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 00:20:29 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 00:43:19 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	handle_collactable(t_game *game, int row, int col)
 	game->player.collectables_gathered++;
 }
 
-static void	handle_exit(t_game *game, int row, int col)
+static void	handle_exit(t_game *game)
 {
 	if (game->player.collectables_gathered == game->map.collectibles)
 	{
@@ -44,7 +44,7 @@ void	move_player(t_game *game, int row, int col, int new_direction)
 	}
 	else if (game->map.map[row][col] == 'E')
 	{
-		handle_exit(game, row, col);
+		handle_exit(game);
 	}
 	game->player.row = row;
 	game->player.col = col;
@@ -60,11 +60,6 @@ We call this function as a handler for the key listener of movement keys
 */
 void	handle_move_player(int key, t_game *game)
 {
-	int	p_col;
-	int	new_row;
-	int	p_row;
-	int	new_col;
-
 	if (key == 13)
 		move_player(game, game->player.row - 1, game->player.col, 1);
 	else if (key == 0)

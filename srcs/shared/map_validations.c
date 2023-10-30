@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 20:20:45 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 00:20:29 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 00:43:38 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ static int	is_walls(char *str)
 */
 int	check_if_rectangular(t_map map)
 {
-	int	first_row_len;
-	int	row;
+	size_t	first_row_len;
+	int		row;
 
 	first_row_len = ft_strlen(map.map[0]);
 	row = 1;

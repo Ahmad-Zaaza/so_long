@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_bonus.c                                    :+:      :+:    :+:   */
+/*   bonus.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 00:24:18 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 01:04:04 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long_bonus.h"
-#include <time.h>
 
 /**
  key codes:
@@ -31,7 +30,6 @@ int	handle_destroy(t_game *game)
 {
 	destroy_tiles(game);
 	cleanup_map(game);
-	destroy_fonts(game);
 	mlx_destroy_window(game->mlx, game->win);
 	exit(0);
 	return (0);
@@ -49,9 +47,7 @@ int	handle_keydown(int key_code, t_game *game)
 int	render_next_frame(t_game *game)
 {
 	mlx_clear_window(game->mlx, game->win);
-	draw_tiles(game);
-	draw_player(game);
-	draw_movements(game);
+	draw(game);
 	return (1);
 }
 
@@ -66,7 +62,6 @@ int	main(int argc, char **argv)
 			(game.map.rows + 1) * TILE_SIZE, "Baby");
 	init_player(&game);
 	load_tiles(&game);
-	load_fonts(&game);
 	mlx_hook(game.win, 2, 0, &handle_keydown, &game);
 	mlx_hook(game.win, 17, 0, &handle_destroy, &game);
 	mlx_loop_hook(game.mlx, render_next_frame, &game);

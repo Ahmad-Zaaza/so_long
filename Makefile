@@ -1,9 +1,9 @@
 
 NAME = so_long
-BONUS = so_long_bonus
+BONUS = bonus
 CC = cc
 #CFLAGS = -Wall -Wextra -Werror
-CFLAGS = -Wall -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 
 MLX_FLAGS = -L mlx -lmlx -framework OpenGL -framework AppKit
 LIBS_FLAGS = -L ft_printf -lftprintf -L libft -lft
@@ -15,10 +15,10 @@ SO_LONG_SRCS_DIR = $(SRCS_DIR)/so_long/
 BONUS_SRCS_DIR = $(SRCS_DIR)/bonus/
 SHARED_SRCS_DIR = $(SRCS_DIR)/shared/
 
-SO_LONG_SRCS = so_long.c 
-BONUS_SRCS = so_long_bonus.c coin.c font.c
-SHARED_SRCS = queue.c player_controls.c player.c dfs.c map_validations.c validations.c  tiles.c  map.c  utils.c \
-				draw.c draw_utils.c error.c
+SO_LONG_SRCS = so_long.c draw.c tiles.c
+BONUS_SRCS = bonus.c coin.c font.c draw_bonus.c tiles_bonus.c
+SHARED_SRCS = queue.c player_controls.c player.c dfs.c map_validations.c validations.c map.c utils.c \
+				 draw_utils.c error.c
 
 SO_LONG_SRCS_PATH = $(SO_LONG_SRCS:%=$(SO_LONG_SRCS_DIR)%)
 BONUS_SRCS_PATH = $(BONUS_SRCS:%=$(BONUS_SRCS_DIR)%)
@@ -53,6 +53,8 @@ $(BONUS): $(BONUS_OBJ)
 	@make -C libft
 	@make -C mlx
 	$(CC) $(CFLAGS) $(BONUS_OBJS_PATH) $(SHARED_OBJS_PATH) $(LIBS_FLAGS) $(MLX_FLAGS) -o $@
+	@echo "bonus is ready!"
+
 
 
 $(SO_LONG_OBJS_PATH): $(SO_LONG_SRCS_PATH)
@@ -77,7 +79,7 @@ clean:
 	@make clean -C ft_printf
 	@make clean -C libft
 	@make clean -C mlx
-	rm -f $(SO_LONG_OBJ) 
+	rm -f $(SO_LONG_OBJ) $(BONUS_OBJ)
 
 fclean:clean
 	@make fclean -C ft_printf

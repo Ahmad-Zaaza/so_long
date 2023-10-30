@@ -21,18 +21,11 @@
 */
 void	init_player(t_game *game)
 {
-	int	height;
-	int	width;
-
 	game->player.collectables_gathered = 0;
 	game->player.moves = 0;
 	game->player.direction = 3;
-	game->player.images[0] = mlx_xpm_file_to_image(game->mlx,
-			"textures/player/left.xpm", &width, &height);
-	game->player.images[1] = mlx_xpm_file_to_image(game->mlx,
-			"textures/player/top.xpm", &width, &height);
-	game->player.images[2] = mlx_xpm_file_to_image(game->mlx,
-			"textures/player/right.xpm", &width, &height);
-	game->player.images[3] = mlx_xpm_file_to_image(game->mlx,
-			"textures/player/bottom.xpm", &width, &height);
+	game->player.images[0] = xpm_to_image(&game, "textures/player/left.xpm");
+	game->player.images[1] = xpm_to_image(&game, "textures/player/top.xpm");
+	game->player.images[2] = xpm_to_image(&game, "textures/player/right.xpm");
+	game->player.images[3] = xpm_to_image(&game, "textures/player/bottom.xpm");
 }

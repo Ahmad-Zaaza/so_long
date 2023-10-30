@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 00:27:13 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 00:31:56 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ int						dfs(t_game *game, int *collected, int **visited,
 // tiles
 void					load_tiles(t_game *game);
 void					draw_tiles(t_game *game);
+void					draw_floor(t_game *game, int row, int col);
 void					destroy_tiles(t_game *game);
 
 // utils

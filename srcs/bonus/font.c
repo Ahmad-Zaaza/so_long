@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 00:18:24 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 00:27:38 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 01:42:45 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 void	load_fonts(t_game *game)
 {
-	int		size;
 	int		i;
-	char	filename[21];
+	char	filename[22];
 
 	i = 0;
 	while (i < 10)
 	{
-		sprintf(filename, "textures/fonts/%d.xpm", i);
+		snprintf(filename, 22, "textures/fonts/%d.xpm", i);
 		game->fonts[i] = xpm_to_image(&game, filename);
 		i++;
 	}
