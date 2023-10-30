@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/26 01:05:14 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/30 18:43:46 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,10 @@ int	handle_keydown(int key_code, t_game *game)
 
 int	render_next_frame(t_game *game)
 {
-	clock_t	start;
-	clock_t	end;
-	double	frame_rate;
-	double	cpu_time_used;
-
-	start = clock();
 	mlx_clear_window(game->mlx, game->win);
 	draw_tiles(game);
 	draw_player(game);
 	draw_movements(game);
-	end = clock();
-	cpu_time_used = (double)(end - start) / CLOCKS_PER_SEC;
-	frame_rate = (double)1 / cpu_time_used;
-	game->frame = frame_rate;
 	return (1);
 }
 

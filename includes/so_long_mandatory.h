@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/26 01:03:08 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/30 23:57:15 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,19 +60,10 @@ typedef struct s_tiles
 	void				*exit;
 }						t_tiles;
 
-typedef struct s_font
-{
-	void				*zero;
-	void				*one;
-	void				*two;
-	void				*three;
-	void				*four;
-	void				*five;
-	void				*six;
-	void				*seven;
-	void				*eight;
-	void				*nine;
-}						t_font;
+// typedef struct s_font
+// {
+// 	void				*fonts[9];
+// }						t_font;
 
 typedef struct s_game
 {
@@ -81,19 +72,11 @@ typedef struct s_game
 	t_map_queue			queue;
 	t_map				map;
 	t_player			player;
-	double				frame;
 	t_tiles				tiles;
-	t_font				font;
+	void				*fonts[9];
 }						t_game;
 
 void					validate_args(int argc, char **argv, t_game *game);
-
-// Color utils
-int						create_trgb(int t, int r, int g, int b);
-int						get_t(int trgb);
-int						get_r(int trgb);
-int						get_g(int trgb);
-int						get_b(int trgb);
 
 // queue
 

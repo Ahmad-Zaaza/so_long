@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:42:03 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/10/28 17:49:17 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/30 18:42:54 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ static void	draw_coin(t_game *game, int row, int col)
 
 	c = clock();
 	draw_floor(game, row + 1, col);
-	if (!game->frame)
-		game->frame = 0;
 	mlx_put_image_to_window(game->mlx, game->win, game->tiles.collectible[(c
 			/ 100000) % 11], col * TILE_SIZE, (row + 1) * TILE_SIZE);
 }
