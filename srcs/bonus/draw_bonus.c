@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:42:03 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/10/31 23:59:04 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/01 00:47:16 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	draw_wall(t_game *game, int row, int col)
 
 static void	draw_enemy(t_game *game, int row, int col)
 {
+	draw_floor(game, row, col);
 	mlx_put_image_to_window(game->mlx, game->win, game->enemy.image, col
 		* TILE_SIZE, row * TILE_SIZE);
 }

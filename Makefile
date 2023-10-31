@@ -17,8 +17,7 @@ SHARED_SRCS_DIR = $(SRCS_DIR)/shared/
 
 SO_LONG_SRCS = so_long.c draw.c tiles.c player_controls.c is_valid_char.c
 BONUS_SRCS = bonus.c coin.c font.c draw_bonus.c tiles_bonus.c player_controls_bonus.c is_valid_char_bonus.c
-SHARED_SRCS = queue.c player.c dfs.c map_validations.c validations.c map.c utils.c \
-				 draw_utils.c error.c
+SHARED_SRCS = queue.c dfs.c player.c  map_validations.c validations.c map.c utils.c draw_utils.c error.c
 
 SO_LONG_SRCS_PATH = $(SO_LONG_SRCS:%=$(SO_LONG_SRCS_DIR)%)
 BONUS_SRCS_PATH = $(BONUS_SRCS:%=$(BONUS_SRCS_DIR)%)
