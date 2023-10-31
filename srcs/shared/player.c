@@ -29,3 +29,19 @@ void	init_player(t_game *game)
 	game->player.images[2] = xpm_to_image(&game, "textures/player/right.xpm");
 	game->player.images[3] = xpm_to_image(&game, "textures/player/bottom.xpm");
 }
+/**
+Move player:
+
+We call this function as a handler for the key listener of movement keys
+*/
+void	handle_move_player(int key, t_game *game)
+{
+	if (key == 13)
+		move_player(game, game->player.row - 1, game->player.col, 1);
+	else if (key == 0)
+		move_player(game, game->player.row, game->player.col - 1, 0);
+	else if (key == 1)
+		move_player(game, game->player.row + 1, game->player.col, 3);
+	else if (key == 2)
+		move_player(game, game->player.row, game->player.col + 1, 2);
+}

@@ -10,7 +10,7 @@
             //     "LSAN_OPTIONS": "verbosity=1:log_threads=1"
             // },
             "args": [
-                "maps/level1.ber"
+                "maps/bonus.ber"
             ],
             "cwd": "${workspaceFolder}",
         }

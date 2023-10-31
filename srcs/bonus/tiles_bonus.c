@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 01:14:07 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 01:32:39 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/01 00:02:22 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	load_tiles(t_game *game)
 {
+	game->enemy.image = xpm_to_image(&game, "textures/world/enemy.xpm");
 	game->tiles.wall = xpm_to_image(&game, "textures/world/rock.xpm");
 	game->tiles.floor = xpm_to_image(&game, "textures/world/floor.xpm");
 	load_fonts(game);
@@ -32,6 +33,7 @@ void	destroy_tiles(t_game *game)
 	}
 	mlx_destroy_image(game->mlx, game->tiles.floor);
 	mlx_destroy_image(game->mlx, game->tiles.wall);
+	mlx_destroy_image(game->mlx, game->enemy.image);
 	destroy_fonts(game);
 	destroy_coins(game);
 }

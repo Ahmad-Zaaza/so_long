@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 00:31:56 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 23:54:23 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ typedef struct s_game
 }						t_game;
 
 void					validate_args(int argc, char **argv, t_game *game);
+int						is_valid_char(char c);
 
 // queue
 

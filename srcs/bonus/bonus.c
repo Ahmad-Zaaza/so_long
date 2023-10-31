@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 01:04:04 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/01 00:20:47 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int	main(int argc, char **argv)
 	validate_args(argc, argv, &game);
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, game.map.columns * TILE_SIZE,
-			(game.map.rows + 1) * TILE_SIZE, "Baby");
-	init_player(&game);
+			(game.map.rows + 1) * TILE_SIZE, "So Long");
 	load_tiles(&game);
+	init_player(&game);
 	mlx_hook(game.win, 2, 0, &handle_keydown, &game);
 	mlx_hook(game.win, 17, 0, &handle_destroy, &game);
 	mlx_loop_hook(game.mlx, render_next_frame, &game);

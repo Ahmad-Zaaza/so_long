@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 11:39:05 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 01:42:30 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/01 00:22:32 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ typedef struct s_player
 	int					collectables_gathered;
 	int					direction;
 	void				*images[4];
-
 }						t_player;
 
 typedef struct s_tiles
@@ -74,6 +73,10 @@ typedef struct s_tiles
 	void				*wall;
 	void				*exit;
 }						t_tiles;
+typedef struct s_enemy
+{
+	void				*image;
+}						t_enemy;
 
 typedef struct s_game
 {
@@ -82,20 +85,15 @@ typedef struct s_game
 	t_map_queue			queue;
 	t_map				map;
 	t_player			player;
+	t_enemy				enemy;
 	t_tiles				tiles;
 	void				*fonts[10];
 }						t_game;
 
 void					validate_args(int argc, char **argv, t_game *game);
+int						is_valid_char(char c);
 
 // queue
-
-void					init_map_queue(t_map_queue *queue);
-void					enqueue(t_map_queue *queue, char *line);
-char					*dequeue(t_map_queue *queue);
-int						is_empty(t_map_queue *queue);
-int						queue_size(t_map_queue *queue);
-void					cleanup_queue(t_map_queue *queue);
 
 // map
 void					init_map(t_map *map);

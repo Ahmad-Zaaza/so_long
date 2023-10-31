@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 03:00:03 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 00:20:29 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 23:14:41 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Makes sure that the given line has only the supported characters.
 
 */
 
-static void	validate_line(char *line, t_map_queue *queue)
+static void	validate_line(char *line, t_game *game)
 {
 	int		i;
 	int		len;
@@ -56,13 +56,12 @@ static void	validate_line(char *line, t_map_queue *queue)
 	len = ft_strlen(trimmed);
 	while (i < len)
 	{
-		if (trimmed[i] != '1' && trimmed[i] != '0' && trimmed[i] != 'C'
-			&& trimmed[i] != 'E' && trimmed[i] != 'P')
+		if (!is_valid_char(trimmed[i]))
 		{
 			print_error("Invalid character in map");
 			free(trimmed);
 			free(line);
-			cleanup_queue(queue);
+			cleanup_queue(&game->queue);
 			exit(1);
 		}
 		i++;
@@ -97,7 +96,7 @@ static void	parse_map(char *name, t_game *game)
 	line = get_next_line(fd);
 	while (line)
 	{
-		validate_line(line, &game->queue);
+		validate_line(line, game);
 		enqueue(&game->queue, ft_strtrim(line, "\n"));
 		free(line);
 		line = get_next_line(fd);

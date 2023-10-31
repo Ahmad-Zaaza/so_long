@@ -6,11 +6,12 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:42:03 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/10/31 01:33:50 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/10/31 23:59:04 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long_bonus.h"
+#include <stdio.h>
 
 /**
   Render player
@@ -39,6 +40,12 @@ void	draw_wall(t_game *game, int row, int col)
 		* TILE_SIZE, row * TILE_SIZE);
 }
 
+static void	draw_enemy(t_game *game, int row, int col)
+{
+	mlx_put_image_to_window(game->mlx, game->win, game->enemy.image, col
+		* TILE_SIZE, row * TILE_SIZE);
+}
+
 /**
 Row starting from 1 because we need to render the fonts on a black bg
 */
@@ -57,6 +64,8 @@ void	draw(t_game *game)
 				draw_wall(game, row + 1, col);
 			else if (game->map.map[row][col] == 'C')
 				draw_coin(game, row + 1, col);
+			else if (game->map.map[row][col] == 'M')
+				draw_enemy(game, row + 1, col);
 			else if (game->map.map[row][col] == '0'
 				|| game->map.map[row][col] == 'P')
 				draw_floor(game, row + 1, col);

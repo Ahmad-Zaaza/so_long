@@ -15,9 +15,9 @@ SO_LONG_SRCS_DIR = $(SRCS_DIR)/so_long/
 BONUS_SRCS_DIR = $(SRCS_DIR)/bonus/
 SHARED_SRCS_DIR = $(SRCS_DIR)/shared/
 
-SO_LONG_SRCS = so_long.c draw.c tiles.c
-BONUS_SRCS = bonus.c coin.c font.c draw_bonus.c tiles_bonus.c
-SHARED_SRCS = queue.c player_controls.c player.c dfs.c map_validations.c validations.c map.c utils.c \
+SO_LONG_SRCS = so_long.c draw.c tiles.c player_controls.c is_valid_char.c
+BONUS_SRCS = bonus.c coin.c font.c draw_bonus.c tiles_bonus.c player_controls_bonus.c is_valid_char_bonus.c
+SHARED_SRCS = queue.c player.c dfs.c map_validations.c validations.c map.c utils.c \
 				 draw_utils.c error.c
 
 SO_LONG_SRCS_PATH = $(SO_LONG_SRCS:%=$(SO_LONG_SRCS_DIR)%)
@@ -48,7 +48,7 @@ $(NAME): $(SO_LONG_OBJ)
 	@make -C mlx
 	$(CC) $(CFLAGS) $(SO_LONG_OBJS_PATH) $(SHARED_OBJS_PATH) $(LIBS_FLAGS) $(MLX_FLAGS) -o $@
 
-$(BONUS): $(BONUS_OBJ)
+$(BONUS): $(OBJS_DIR) $(BONUS_OBJ)
 	@make -C ft_printf
 	@make -C libft
 	@make -C mlx
