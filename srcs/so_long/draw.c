@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:42:03 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/10/31 01:05:01 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/02 00:27:51 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,19 @@ static void	draw_coin(t_game *game, int row, int col)
 		* TILE_SIZE, row * TILE_SIZE);
 }
 
-/**
-Draw (called from render_next_frame)
-*/
-void	draw_tiles(t_game *game)
+void	handle_tiles_draw(t_game *game, int row, int col)
 {
-	int	col;
-	int	row;
-
-	row = 0;
-	while (row < game->map.rows)
+	if (game->map.map[row][col] == '1')
+		draw_wall(game, row, col);
+	else if (game->map.map[row][col] == 'C')
+		draw_coin(game, row, col);
+	else if (game->map.map[row][col] == '0' || game->map.map[row][col] == 'P')
+		draw_floor(game, row, col);
+	else if (game->map.map[row][col] == 'E')
 	{
-		col = 0;
-		while (col < game->map.columns)
-		{
-			if (game->map.map[row][col] == '1')
-				draw_wall(game, row, col);
-			else if (game->map.map[row][col] == 'C')
-				draw_coin(game, row, col);
-			else if (game->map.map[row][col] == '0'
-				|| game->map.map[row][col] == 'P')
-				draw_floor(game, row, col);
-			col++;
-		}
-		row++;
+		draw_floor(game, row, col);
+		mlx_put_image_to_window(game->mlx, game->win, game->tiles.exit, col
+			* TILE_SIZE, row * TILE_SIZE);
 	}
 }
 

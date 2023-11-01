@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/01 00:20:47 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/02 00:23:19 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,28 @@ int	handle_keydown(int key_code, t_game *game)
 		handle_move_player(key_code, game);
 	return (0);
 }
+/**
+Row starting from 1 because we need to render the fonts on a black bg
+*/
+void	draw(t_game *game)
+{
+	int	col;
+	int	row;
 
+	row = 0;
+	while (row < game->map.rows)
+	{
+		col = 0;
+		while (col < game->map.columns)
+		{
+			handle_tiles_draw(game, row, col);
+			col++;
+		}
+		row++;
+	}
+	draw_player(game);
+	draw_movements(game);
+}
 int	render_next_frame(t_game *game)
 {
 	mlx_clear_window(game->mlx, game->win);

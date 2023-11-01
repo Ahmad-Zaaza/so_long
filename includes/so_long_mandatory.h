@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 23:54:23 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/02 00:19:02 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ int						check_enclosed_by_walls(t_map map);
 void					init_player(t_game *game);
 void					handle_move_player(int key, t_game *game);
 void					draw_player(t_game *game);
+void					handle_tiles_draw(t_game *game, int row, int col);
 void					move_player(t_game *game, int row, int col,
 							int new_direction);
 int						dfs(t_game *game, int *collected, int **visited,
@@ -119,7 +120,7 @@ int						dfs(t_game *game, int *collected, int **visited,
 
 // tiles
 void					load_tiles(t_game *game);
-void					draw_tiles(t_game *game);
+void					draw(t_game *game);
 void					draw_floor(t_game *game, int row, int col);
 void					destroy_tiles(t_game *game);
 

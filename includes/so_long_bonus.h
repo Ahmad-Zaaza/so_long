@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 11:39:05 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/01 00:48:46 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/02 00:14:31 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,8 @@ void					load_tiles(t_game *game);
 void					load_coin(t_game *game);
 void					draw(t_game *game);
 void					draw_movements(t_game *game);
+void					draw_player(t_game *game);
+void					handle_tiles_draw(t_game *game, int row, int col);
 void					draw_coin(t_game *game, int row, int col);
 void					destroy_tiles(t_game *game);
 
