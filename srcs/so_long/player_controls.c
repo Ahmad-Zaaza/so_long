@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_controls.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 02:17:56 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 23:57:43 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/05 15:26:52 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static void	handle_exit(t_game *game)
 {
 	if (game->player.collectables_gathered == game->map.collectibles)
 	{
+		game->player.moves++;
+		ft_printf("Player moves:%d\n", game->player.moves);
 		ft_printf("You win!\n");
 		handle_destroy(game);
 	}

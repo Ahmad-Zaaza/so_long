@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/02 00:20:59 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/05 15:50:25 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	draw(t_game *game)
 
 int	render_next_frame(t_game *game)
 {
-	mlx_clear_window(game->mlx, game->win);
+	// mlx_clear_window(game->mlx, game->win);
 	draw(game);
 	return (1);
 }
@@ -99,6 +99,7 @@ int	main(int argc, char **argv)
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, game.map.columns * TILE_SIZE,
 			game.map.rows * TILE_SIZE, "Baby");
+	init_images(&game);
 	init_player(&game);
 	load_tiles(&game);
 	mlx_hook(game.win, KEY_PRESS, 0, &handle_keydown, &game);

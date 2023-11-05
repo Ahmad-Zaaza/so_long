@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 11:39:05 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/02 00:14:31 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/05 15:48:32 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ void					draw_player(t_game *game);
 void					handle_tiles_draw(t_game *game, int row, int col);
 void					draw_coin(t_game *game, int row, int col);
 void					destroy_tiles(t_game *game);
+void					init_images(t_game *game);
 
 // utils
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_mandatory.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/02 00:19:02 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/05 15:48:19 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ void					load_tiles(t_game *game);
 void					draw(t_game *game);
 void					draw_floor(t_game *game, int row, int col);
 void					destroy_tiles(t_game *game);
+void					init_images(t_game *game);
 
 // utils
 

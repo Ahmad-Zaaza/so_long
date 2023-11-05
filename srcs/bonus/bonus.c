@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/02 00:23:19 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/05 15:53:35 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,9 @@ int	main(int argc, char **argv)
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, game.map.columns * TILE_SIZE,
 			(game.map.rows + 1) * TILE_SIZE, "So Long");
-	load_tiles(&game);
+	init_images(&game);
 	init_player(&game);
+	load_tiles(&game);
 	mlx_hook(game.win, 2, 0, &handle_keydown, &game);
 	mlx_hook(game.win, 17, 0, &handle_destroy, &game);
 	mlx_loop_hook(game.mlx, render_next_frame, &game);

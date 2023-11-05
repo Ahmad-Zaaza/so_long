@@ -3,7 +3,7 @@ NAME = so_long
 BONUS = bonus
 CC = cc
 #CFLAGS = -Wall -Wextra -Werror
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror
 
 MLX_FLAGS = -L mlx -lmlx -framework OpenGL -framework AppKit
 LIBS_FLAGS = -L ft_printf -lftprintf -L libft -lft

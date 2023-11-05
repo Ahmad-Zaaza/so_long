@@ -21,6 +21,7 @@
 */
 void	init_player(t_game *game)
 {
+	
 	game->player.collectables_gathered = 0;
 	game->player.moves = 0;
 	game->player.direction = 3;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tiles_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
+/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 01:14:07 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/02 00:10:12 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/05 15:50:10 by azaaza           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,19 @@ void	destroy_tiles(t_game *game)
 	mlx_destroy_image(game->mlx, game->enemy.image);
 	destroy_fonts(game);
 	destroy_coins(game);
+}
+
+void	init_images(t_game *game)
+{
+	int i;
+
+	i = 0;
+	while (i < 4)
+		game->player.images[i++] = NULL;
+	game->tiles.wall = NULL;
+	 i = 0;
+	 while (i < 14)
+		game->tiles.collectible[i++] = NULL;
+	game->tiles.floor = NULL;
+	game->tiles.exit = NULL;
 }
