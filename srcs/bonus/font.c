@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 00:18:24 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 01:42:45 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/05 19:38:26 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	destroy_fonts(t_game *game)
 	i = 0;
 	while (i < 10)
 	{
-		mlx_destroy_image(game->mlx, game->fonts[i]);
+		if (game->fonts[i])
+			mlx_destroy_image(game->mlx, game->fonts[i]);
 		i++;
 	}
 }
