@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_mandatory.h                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 01:20:47 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/05 15:48:19 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/11/08 23:37:41 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ typedef struct s_game
 	t_map				map;
 	t_player			player;
 	t_tiles				tiles;
+	int					**visited_arr;
+
 }						t_game;
 
 void					validate_args(int argc, char **argv, t_game *game);
@@ -115,8 +117,7 @@ void					draw_player(t_game *game);
 void					handle_tiles_draw(t_game *game, int row, int col);
 void					move_player(t_game *game, int row, int col,
 							int new_direction);
-int						dfs(t_game *game, int *collected, int **visited,
-							int row, int col);
+int						dfs(t_game *game, int *collected, int row, int col);
 
 // tiles
 void					load_tiles(t_game *game);

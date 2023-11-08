@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/05 15:50:25 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/11/08 23:30:23 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,6 @@ int	handle_destroy(t_game *game)
 	return (0);
 }
 
-/**
- key codes:
- 53: esc;
- 123: left arrow;
- 124: right arrow;
- 125: down arrow;
- 126: up arrow;
- 13: w;
- 0: a;
- 1: s;
- 2: d;
-
-*/
 int	handle_keydown(int key_code, t_game *game)
 {
 	if (key_code == 53)
@@ -44,9 +31,6 @@ int	handle_keydown(int key_code, t_game *game)
 	return (0);
 }
 
-/**
-Row starting from 1 because we need to render the fonts on a black bg
-*/
 void	draw(t_game *game)
 {
 	int	col;
@@ -68,33 +52,15 @@ void	draw(t_game *game)
 
 int	render_next_frame(t_game *game)
 {
-	// mlx_clear_window(game->mlx, game->win);
+	mlx_clear_window(game->mlx, game->win);
 	draw(game);
 	return (1);
 }
 
-/**
-Game entry point.
-
-the game information will be stored inside a struct called `game`.
-
-the game takes a single argument which is the map path that we would read.
-
-A map is a file consists of characters which represent the game elements.
-
-At first: We validate that we have only one argument (map path),
-then within the same function we read the map, parse it, then validate
-that we have the correct elements.
-
-After that: We start initializing the game information, assets, fonts,
-then hook up key listeners and render the assets.
-
-*/
 int	main(int argc, char **argv)
 {
 	t_game	game;
 
-	// args and map validation
 	validate_args(argc, argv, &game);
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, game.map.columns * TILE_SIZE,

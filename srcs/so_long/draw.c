@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:42:03 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/11/02 00:27:51 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/08 23:28:44 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,6 @@ void	handle_tiles_draw(t_game *game, int row, int col)
 	}
 }
 
-/**
-  Render player
-
-  We use this function inside the mlx frame loop.
-
-  We access the images array using the current direction and pass it to mlx to render.
-*/
 void	draw_player(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx, game->win,

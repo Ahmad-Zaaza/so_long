@@ -6,17 +6,12 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 02:17:56 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/01 00:51:17 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/08 23:30:23 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long_bonus.h"
 
-/**
-  Once the player steps on a collectable tile, convert the
-  tile into a normal tile.
-  Increment the collectables gathered.
-*/
 static void	handle_collactable(t_game *game, int row, int col)
 {
 	game->map.map[row][col] = '0';

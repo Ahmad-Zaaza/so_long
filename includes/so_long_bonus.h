@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 11:39:05 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/05 15:48:32 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/11/08 23:37:41 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_game
 	t_enemy				enemy;
 	t_tiles				tiles;
 	void				*fonts[10];
+	int					**visited_arr;
 }						t_game;
 
 void					validate_args(int argc, char **argv, t_game *game);
@@ -121,8 +122,7 @@ void					handle_move_player(int key, t_game *game);
 void					draw_floor(t_game *game, int row, int col);
 void					move_player(t_game *game, int row, int col,
 							int new_direction);
-int						dfs(t_game *game, int *collected, int **visited,
-							int row, int col);
+int						dfs(t_game *game, int *collected, int row, int col);
 
 // tiles
 void					load_tiles(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 00:18:24 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/05 19:38:26 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/08 23:33:18 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,12 @@ void	destroy_fonts(t_game *game)
 		i++;
 	}
 }
+
 void	draw_movements(t_game *game)
 {
-	int i;
-	int digit;
-	int moves;
+	int	i;
+	int	digit;
+	int	moves;
 
 	moves = game->player.moves;
 	i = 0;

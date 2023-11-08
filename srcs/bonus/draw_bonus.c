@@ -6,19 +6,11 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:42:03 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/11/02 00:33:44 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/08 23:32:46 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long_bonus.h"
-
-/**
-  Render player
-
-  We use this function inside the mlx frame loop.
-
-  We access the images array using the current direction and pass it to mlx to render.
-*/
 
 void	draw_player(t_game *game)
 {
@@ -45,6 +37,7 @@ static void	draw_enemy(t_game *game, int row, int col)
 	mlx_put_image_to_window(game->mlx, game->win, game->enemy.image, col
 		* TILE_SIZE, row * TILE_SIZE);
 }
+
 void	handle_tiles_draw(t_game *game, int row, int col)
 {
 	if (game->map.map[row][col] == '1')

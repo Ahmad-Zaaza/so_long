@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 01:14:07 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/05 19:40:37 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/06 01:12:57 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	destroy_tiles(t_game *game)
 
 void	init_images(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 4)

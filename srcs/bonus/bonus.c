@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   bonus.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 22:31:40 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/05 15:53:35 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/11/08 23:32:22 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/so_long_bonus.h"
-
-/**
- key codes:
- 53: esc;
- 123: left arrow;
- 124: right arrow;
- 125: down arrow;
- 126: up arrow;
- 13: w;
- 0: a;
- 1: s;
- 2: d;
-
-*/
 
 int	handle_destroy(t_game *game)
 {
@@ -43,9 +29,7 @@ int	handle_keydown(int key_code, t_game *game)
 		handle_move_player(key_code, game);
 	return (0);
 }
-/**
-Row starting from 1 because we need to render the fonts on a black bg
-*/
+
 void	draw(t_game *game)
 {
 	int	col;
@@ -65,6 +49,7 @@ void	draw(t_game *game)
 	draw_player(game);
 	draw_movements(game);
 }
+
 int	render_next_frame(t_game *game)
 {
 	mlx_clear_window(game->mlx, game->win);
@@ -76,7 +61,6 @@ int	main(int argc, char **argv)
 {
 	t_game	game;
 
-	// args and map validation
 	validate_args(argc, argv, &game);
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, game.map.columns * TILE_SIZE,

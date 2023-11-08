@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:39:50 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/10/31 00:20:29 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/06 01:11:20 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	print_error(char *message)
 
 void	cleanup_queue(t_map_queue *queue)
 {
-	t_map_node *tmp;
+	t_map_node	*tmp;
 
 	while (queue->first)
 	{

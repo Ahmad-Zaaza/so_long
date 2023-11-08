@@ -86,5 +86,8 @@ fclean:clean
 	@make clean -C mlx
 	rm -f $(NAME) $(BONUS)
 
+norm:
+	@norminette $(SO_LONG_SRCS_PATH) $(BONUS_SRCS_PATH) $(SHARED_SRCS_PATH) $(INC_DIR)
+
 re: fclean all
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re norm

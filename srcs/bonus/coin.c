@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 00:11:27 by ahmadzaaza        #+#    #+#             */
-/*   Updated: 2023/11/05 19:41:22 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/08 23:32:31 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	destroy_coins(t_game *game)
 	i = 0;
 	while (i < 14)
 	{
-		if(game->tiles.collectible[i])
+		if (game->tiles.collectible[i])
 			mlx_destroy_image(game->mlx, game->tiles.collectible[i]);
 		i++;
 	}

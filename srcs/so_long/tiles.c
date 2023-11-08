@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tiles.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: azaaza <azaaza@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 01:14:07 by azaaza            #+#    #+#             */
-/*   Updated: 2023/11/05 15:47:46 by azaaza           ###   ########.fr       */
+/*   Updated: 2023/11/06 01:13:44 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	load_tiles(t_game *game)
 {
 	game->tiles.wall = xpm_to_image(&game, "textures/world/rock.xpm");
 	game->tiles.collectible = xpm_to_image(&game,
-											"textures/world/coin/coin.xpm");
+			"textures/world/coin/coin.xpm");
 	game->tiles.floor = xpm_to_image(&game, "textures/world/floor.xpm");
 	game->tiles.exit = xpm_to_image(&game, "textures/world/exit.xpm");
 }
@@ -44,7 +44,7 @@ void	destroy_tiles(t_game *game)
 
 void	init_images(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 4)

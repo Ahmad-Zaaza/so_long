@@ -6,7 +6,7 @@
 /*   By: ahmadzaaza <ahmadzaaza@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 20:55:30 by azaaza            #+#    #+#             */
-/*   Updated: 2023/10/31 00:20:29 by ahmadzaaza       ###   ########.fr       */
+/*   Updated: 2023/11/08 23:30:23 by ahmadzaaza       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@ void	init_map(t_map *map)
 	map->map = NULL;
 }
 
-/**
-	Extracting the map from the queue.
-	Each node in the queue is a line in the map in a form of a string.
-	In the end we endup with a 2d array which we set to game->map.map
-*/
 void	parse_map_from_queue(t_game *game)
 {
 	char	**map_data;
@@ -107,7 +102,7 @@ int	check_exist_and_duplicates(t_game *game)
 
 void	cleanup_map(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < game->map.rows && game->map.map[i])
